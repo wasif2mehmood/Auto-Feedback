@@ -1,0 +1,489 @@
+rag_implementation:
+  criterion_name: "RAG Implementation"
+  criterion_description:
+    - |
+      "Evaluates whether the publication demonstrates implementation of Retrieval-Augmented 
+      Generation (RAG) architecture, including both retrieval and generation components."
+    - |
+      "Must show basic integration of vector-based retrieval mechanism with language model 
+      generation for answering queries based on external knowledge."
+    - |
+      "The key differentiator is the presence of both document retrieval from a knowledge 
+      base and LLM-generated responses based on retrieved context."
+  required_items:
+    - publication_title
+    - publication_description
+  scoring_logic:
+    - value: 0
+      description: "No RAG implementation demonstrated or described"
+    - value: 1
+      description: "Basic RAG implementation with retrieval and generation components mentioned"
+  positive_indicators:
+    - "Mentions document retrieval and LLM generation"
+    - "Shows use of vector storage or embeddings"
+    - "Demonstrates context retrieval from knowledge base"
+    - "Integrates retrieved documents with LLM prompts"
+  negative_indicators:
+    - "Only uses LLM without external knowledge retrieval"
+    - "No vector storage or similarity search mentioned"
+    - "Missing document embedding process"
+    - "No external knowledge integration"
+  uses_llm: true
+
+project_scope_clarity:
+  criterion_name: "RAG Project Scope Definition"
+  criterion_description:
+    - |
+      "Evaluates whether the publication clearly defines the specific RAG assistant 
+      implementation and its intended use case."
+    - |
+      "Must specify the document domain and basic functionality of the RAG system built."
+    - |
+      "Should indicate what knowledge base was used and what types of questions 
+      the assistant can answer."
+  required_items:
+    - publication_title
+    - publication_description
+  scoring_logic:
+    - value: 0
+      description: "RAG project scope is unclear or too vague"
+    - value: 1
+      description: "Basic definition of RAG assistant scope and domain provided"
+  positive_indicators:
+    - "States the document domain or knowledge base used"
+    - "Defines basic use cases or target queries"
+    - "Mentions RAG assistant capabilities"
+    - "Explains choice of document set"
+  negative_indicators:
+    - "Vague description of what the assistant does"
+    - "Unclear document domain or knowledge base"
+    - "No explanation of assistant capabilities"
+    - "Generic RAG description without specifics"
+  uses_llm: true
+
+prompt_engineering_implementation:
+  criterion_name: "Clear Prompt Engineering Implementation"
+  criterion_description:
+    - |
+      "Evaluates whether the publication demonstrates basic prompt engineering 
+      techniques in the RAG implementation."
+    - |
+      "Must show prompts that incorporate retrieved context and provide 
+      instructions to the language model."
+    - |
+      "Should document basic prompt design and context integration strategies."
+  required_items:
+    - publication_title
+    - publication_description
+  scoring_logic:
+    - value: 0
+      description: "No prompt engineering mentioned or demonstrated"
+    - value: 1
+      description: "Basic prompt engineering with context integration shown"
+  positive_indicators:
+    - "Shows prompt templates or examples"
+    - "Demonstrates context integration from retrieved documents"
+    - "Uses system messages or role definitions"
+    - "Shows how retrieved context is incorporated"
+  negative_indicators:
+    - "No prompts shown or mentioned"
+    - "Missing context integration in prompt design"
+    - "No documentation of prompt approach"
+    - "Unclear how retrieved context is incorporated"
+  uses_llm: true
+
+rag_architecture_explanation:
+  criterion_name: "RAG Architecture Implementation Details"
+  criterion_description:
+    - |
+      "Assesses whether the publication explains the basic RAG pipeline architecture 
+      and key components used in the implementation."
+    - |
+      "Must document the retrieval mechanism, vector store choice, and LLM 
+      integration approach."
+    - |
+      "Should explain how documents are processed and retrieved for response generation."
+  required_items:
+    - publication_title
+    - publication_description
+  scoring_logic:
+    - value: 0
+      description: "No RAG architecture explanation provided"
+    - value: 1
+      description: "Basic explanation of RAG pipeline and components"
+  positive_indicators:
+    - "Mentions document processing and chunking"
+    - "Names vector store used"
+    - "Describes embedding model"
+    - "Explains basic retrieval mechanism"
+  negative_indicators:
+    - "Missing pipeline architecture details"
+    - "No explanation of document processing"
+    - "Missing retrieval mechanism details"
+    - "Vague component descriptions"
+  uses_llm: true
+
+document_ingestion_process:
+  criterion_name: "Document Ingestion and Processing"
+  criterion_description:
+    - |
+      "Assesses whether the publication documents the basic process of ingesting 
+      and preparing documents for the vector store."
+    - |
+      "Must explain document selection, preprocessing, and embedding generation."
+    - |
+      "Should address basic document handling and preparation steps."
+  required_items:
+    - publication_title
+    - publication_description
+  scoring_logic:
+    - value: 0
+      description: "No document ingestion process described"
+    - value: 1
+      description: "Basic document processing and ingestion described"
+  positive_indicators:
+    - "Mentions document selection and sources"
+    - "Describes text preprocessing steps"
+    - "Explains chunking strategy"
+    - "Mentions embedding generation"
+  negative_indicators:
+    - "No explanation of document processing"
+    - "Missing preprocessing details"
+    - "No discussion of document handling"
+    - "Vague ingestion process description"
+  uses_llm: true
+
+text_chunking_strategy:
+  criterion_name: "Text Chunking Strategy and Implementation"
+  criterion_description:
+    - |
+      "Assesses the publication's approach to text chunking for the RAG system."
+    - |
+      "Must mention chunking implementation with chunk size and overlap parameters."
+    - |
+      "Should specify basic chunking parameters used in the implementation."
+  required_items:
+    - publication_title
+    - publication_description
+  scoring_logic:
+    - value: 0
+      description: "No chunking strategy mentioned"
+    - value: 1
+      description: "Basic chunking implementation with parameters specified"
+  positive_indicators:
+    - "Specifies chunk size and overlap parameters"
+    - "Mentions chunking configuration"
+    - "Describes chunking method used"
+    - "Shows basic chunking implementation"
+  negative_indicators:
+    - "No chunking parameters specified"
+    - "Missing chunk size or overlap configuration"
+    - "No explanation of chunking approach"
+    - "Vague or unclear chunking description"
+
+chunk_overlap_strategy:
+  criterion_name: "Chunk Overlap and Context Preservation"
+  criterion_description:
+    - |
+      "Evaluates the mention of chunk overlap strategies to maintain 
+      context continuity across document segments."
+    - |
+      "Must demonstrate basic understanding of overlap and mention 
+      overlap implementation."
+    - |
+      "Should document basic overlap parameters used."
+  required_items:
+    - publication_title
+    - publication_description
+  scoring_logic:
+    - value: 0
+      description: "No overlap strategy mentioned"
+    - value: 1
+      description: "Basic overlap strategy mentioned with parameters"
+  positive_indicators:
+    - "Mentions chunk overlap implementation"
+    - "Specifies overlap parameters"
+    - "Explains basic overlap rationale"
+    - "Documents overlap configuration"
+  negative_indicators:
+    - "No chunk overlap mentioned"
+    - "Missing overlap parameter specification"
+    - "No consideration of overlap benefits"
+    - "No overlap implementation described"
+  uses_llm: true
+
+embedding_model_selection:
+  criterion_name: "Embedding Model Selection and Configuration"
+  criterion_description:
+    - |
+      "Assesses the publication's approach to selecting embedding models 
+      for document and query representation."
+    - |
+      "Must mention the embedding model used and provide basic rationale 
+      for the choice."
+    - |
+      "Should identify which embedding model is used and why it was selected."
+  required_items:
+    - publication_title
+    - publication_description
+  scoring_logic:
+    - value: 0
+      description: "No embedding model mentioned or explained"
+    - value: 1
+      description: "Basic embedding model selection with some rationale"
+  positive_indicators:
+    - "Names the specific embedding model used"
+    - "Provides basic rationale for model choice"
+    - "Mentions embedding model capabilities"
+    - "Shows awareness of embedding model selection"
+  negative_indicators:
+    - "No embedding model mentioned"
+    - "No explanation of model choice"
+    - "Generic or unclear model references"
+    - "Missing model selection rationale"
+  uses_llm: true
+
+vector_store_implementation:
+  criterion_name: "Vector Store Selection and Configuration"
+  criterion_description:
+    - |
+      "Evaluates the mention and basic explanation of vector storage solution 
+      for the RAG system's retrieval component."
+    - |
+      "Must name the vector store used and provide basic explanation 
+      for the choice."
+    - |
+      "Should document which vector store is implemented and why."
+  required_items:
+    - publication_title
+    - publication_description
+  scoring_logic:
+    - value: 0
+      description: "No vector store mentioned or explained"
+    - value: 1
+      description: "Basic vector store selection with some explanation"
+  positive_indicators:
+    - "Names the vector store used"
+    - "Provides basic rationale for choice"
+    - "Mentions vector store configuration"
+    - "Shows understanding of vector store purpose"
+  negative_indicators:
+    - "No vector store mentioned"
+    - "No explanation of storage choice"
+    - "Generic storage references"
+    - "Missing vector store details"
+  uses_llm: true
+
+similarity_search_configuration:
+  criterion_name: "Similarity Search and Retrieval Configuration"
+  criterion_description:
+    - |
+      "Assesses the mention of similarity search mechanisms for document retrieval."
+    - |
+      "Must demonstrate basic understanding of similarity search and mention 
+      search parameters or algorithms used."
+    - |
+      "Should document basic search configuration used."
+  required_items:
+    - publication_title
+    - publication_description
+  scoring_logic:
+    - value: 0
+      description: "No similarity search mentioned or configured"
+    - value: 1
+      description: "Basic similarity search mentioned with some configuration"
+  positive_indicators:
+    - "Mentions similarity metrics used"
+    - "Names search algorithms or methods"
+    - "Specifies basic search parameters"
+    - "Shows understanding of similarity search"
+  negative_indicators:
+    - "No similarity search mentioned"
+    - "Missing search parameter details"
+    - "No algorithm or method specified"
+    - "Unclear search implementation"
+  uses_llm: true
+
+query_processing_optimization:
+  criterion_name: "Query Processing and Optimization"
+  criterion_description:
+    - |
+      "Evaluates the mention of query processing techniques to improve 
+      retrieval accuracy and relevance."
+    - |
+      "Must demonstrate basic query preprocessing or enhancement strategies."
+    - |
+      "Should document basic query optimization techniques used."
+  required_items:
+    - publication_title
+    - publication_description
+  scoring_logic:
+    - value: 0
+      description: "No query processing mentioned"
+    - value: 1
+      description: "Basic query processing techniques mentioned"
+  positive_indicators:
+    - "Mentions query preprocessing"
+    - "Describes query enhancement techniques"
+    - "Shows query validation or handling"
+    - "Documents query transformation"
+  negative_indicators:
+    - "No query preprocessing mentioned"
+    - "Missing query enhancement details"
+    - "No query optimization described"
+    - "Basic query handling without processing"
+  uses_llm: true
+
+retrieval_evaluation_metrics:
+  criterion_name: "Retrieval Performance Evaluation and Metrics"
+  criterion_description:
+    - |
+      "Evaluates the mention of retrieval performance measurement 
+      and evaluation approaches."
+    - |
+      "Must demonstrate basic evaluation of retrieval quality using 
+      some metrics or testing approaches."
+    - |
+      "Should document basic evaluation methodology used."
+  required_items:
+    - publication_title
+    - publication_description
+  scoring_logic:
+    - value: 0
+      description: "No retrieval evaluation mentioned"
+    - value: 1
+      description: "Basic retrieval evaluation with some metrics mentioned"
+  positive_indicators:
+    - "Mentions retrieval accuracy metrics"
+    - "Shows retrieval performance testing"
+    - "Documents evaluation methodology"
+    - "Measures retrieval effectiveness"
+  negative_indicators:
+    - "No retrieval evaluation mentioned"
+    - "Missing performance metrics"
+    - "No testing described"
+    - "Missing evaluation approach"
+  uses_llm: true
+
+model_selection:
+  criterion_name: "Model Selection for Response Generation"
+  criterion_description:
+    - |
+      "Assesses the mention of language model selection for response 
+      generation in the RAG pipeline."
+    - |
+      "Must name the LLM used and provide basic rationale for selection."
+    - |
+      "Should document which model is used and why it was chosen."
+  required_items:
+    - publication_title
+    - publication_description
+  scoring_logic:
+    - value: 0
+      description: "No model selection mentioned or explained"
+    - value: 1
+      description: "Basic model selection with some rationale provided"
+  positive_indicators:
+    - "Names the specific LLM used"
+    - "Provides basic rationale for model choice"
+    - "Mentions model capabilities for the use case"
+    - "Shows awareness of model selection"
+  negative_indicators:
+    - "No LLM mentioned or specified"
+    - "No explanation of model choice"
+    - "Generic model references"
+    - "Missing model selection rationale"
+  uses_llm: true
+
+memory_and_reasoning:
+  criterion_name: "Memory and Reasoning Implementation"
+  criterion_description:
+    - |
+      "Evaluates whether the publication mentions implementation of memory 
+      mechanisms and reasoning capabilities in the RAG assistant."
+    - |
+      "Must show conversation history management, context persistence, or 
+      multi-step reasoning approaches."
+    - |
+      "Should document basic memory or reasoning strategies implemented."
+  required_items:
+    - publication_title
+    - publication_description
+  scoring_logic:
+    - value: 0
+      description: "No memory or reasoning implementation mentioned"
+    - value: 1
+      description: "Basic memory mechanisms or reasoning patterns mentioned"
+  positive_indicators:
+    - "Mentions conversation history or session memory"
+    - "Shows context persistence across interactions"
+    - "Describes multi-step reasoning patterns"
+    - "Documents memory management approach"
+  negative_indicators:
+    - "No memory implementation mentioned"
+    - "Missing conversation context handling"
+    - "No reasoning capabilities described"
+    - "Basic stateless implementation only"
+  uses_llm: true
+
+agentic_patterns_implementation:
+  criterion_name: "Agentic Patterns and Frameworks Usage"
+  criterion_description:
+    - |
+      "Assesses the mention of advanced agentic patterns or structured 
+      reasoning frameworks in the RAG system."
+    - |
+      "Must demonstrate basic usage of systematic reasoning patterns 
+      beyond simple prompt-response interactions."
+    - |
+      "Should show understanding of agentic AI patterns implemented."
+  required_items:
+    - publication_title
+    - publication_description
+  scoring_logic:
+    - value: 0
+      description: "No agentic patterns mentioned"
+    - value: 1
+      description: "Basic agentic patterns or reasoning frameworks mentioned"
+  positive_indicators:
+    - "Mentions structured reasoning patterns"
+    - "Describes systematic reasoning frameworks"
+    - "Shows thought-action-observation cycles"
+    - "Documents reasoning pattern implementation"
+  negative_indicators:
+    - "No agentic patterns mentioned"
+    - "Basic prompt-response only"
+    - "Missing systematic reasoning"
+    - "No advanced reasoning frameworks"
+  uses_llm: true
+
+guardrails_implementation:
+  criterion_name: "Guardrails and Safety Measures"
+  criterion_description:
+    - |
+      "Evaluates the mention of safety guardrails and content filtering 
+      mechanisms in the RAG assistant system."
+    - |
+      "Must demonstrate basic measures to prevent harmful outputs or handle 
+      inappropriate queries."
+    - |
+      "Should document basic safety considerations implemented."
+  required_items:
+    - publication_title
+    - publication_description
+  scoring_logic:
+    - value: 0
+      description: "No guardrails or safety measures mentioned"
+    - value: 1
+      description: "Basic guardrails and safety mechanisms mentioned"
+  positive_indicators:
+    - "Mentions input validation or query filtering"
+    - "Describes content moderation approaches"
+    - "Shows output filtering or response validation"
+    - "Documents basic safety considerations"
+  negative_indicators:
+    - "No safety measures mentioned"
+    - "Missing input validation details"
+    - "No consideration of harmful outputs"
+    - "Missing safety implementation"
+  uses_llm: true

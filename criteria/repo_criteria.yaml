@@ -1,0 +1,3599 @@
+# This file contains scoring criteria with uses_llm field added
+clear_purpose:
+  criterion_name: Clear Purpose and Objectives
+  criterion_description:
+  - "\"Evaluates whether the publication explicitly states its core purpose within\
+    \ the \nfirst paragraph or two.\"\n"
+  - "\"The purpose statement must clearly indicate what specific problem is being\
+    \ solved, \nwhat will be learned, or what will be demonstrated.\"\n"
+  - "\"Must appear in the abstract, tl;dr, introduction, or overview section and be\
+    \ \nimmediately clear without requiring further reading.\"\n"
+  - "\"The key differentiator is an explicit, specific purpose statement near the\
+    \ top \nthat lets readers immediately understand what the publication will deliver.\"\
+    \n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: '"Purpose is unclear, appears too late, requires inference, or is
+      too vague"
+
+      '
+  - value: 1
+    description: "\"Explicit purpose statement appears in first paragraph/10 sentences\
+      \ and clearly \nstates specific deliverables\"\n"
+  positive_indicators:
+  - States specific purpose in first paragraph
+  - Uses explicit purpose statement phrases (e.g., 'This paper demonstrates...', 'In
+    this guide, you will learn...')
+  - Clearly defines concrete deliverables or outcomes
+  - Lists specific skills or knowledge to be gained
+  - States exact problem being solved
+  - Defines precise scope of work
+  - Indicates specific contributions or solutions
+  negative_indicators:
+  - Purpose appears after first paragraph
+  - Requires reading multiple paragraphs to understand goal
+  - Uses vague phrases (e.g., 'explore', 'look at', 'discuss')
+  - Lists multiple potential purposes
+  - Unclear what reader will gain
+  - Purpose scattered across document
+  - Ambiguous or general statements
+  - Purpose must be pieced together
+  - Only implies purpose without stating it
+  - Uses broad or non-specific language
+  uses_llm: true
+specific_objectives:
+  criterion_name: Specific Objectives
+  criterion_description: '"Assesses whether the publication lists specific and concrete
+    objectives that will be addressed."
+
+    '
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Missing specific objectives, or they are too vague
+  - value: 1
+    description: Contains specific objectives that clearly outline what will be achieved
+  positive_indicators:
+  - Lists specific things that will be covered/achieved
+  - Objectives are concrete and focused
+  - Objectives align with stated purpose
+  - Clear deliverables or outcomes specified
+  negative_indicators:
+  - Objectives are vague or too broad
+  - Missing explicit objectives
+  - Objectives don't align with stated purpose
+  - No clear outline of what will be achieved
+  uses_llm: true
+publication_intended_audience:
+  criterion_name: Intended Audience/Use Case
+  criterion_description: '"Evaluates whether the publication clearly identifies who
+    it''s for and how it benefits them."
+
+    '
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: No clear target audience or use case specified
+  - value: 1
+    description: Clear identification of target audience and intended use
+  positive_indicators:
+  - Specifies required background knowledge or other resources
+  - Identifies who will benefit from this content
+  - Explains how the content should be used or may benefit the audience
+  negative_indicators:
+  - No mention of target audience
+  - Unclear prerequisites or requirements
+  - Unclear why this study would matter to the audience
+  uses_llm: true
+target_audience_definition:
+  criterion_name: Target Audience Definition
+  criterion_description:
+  - "\"Evaluates how well the publication identifies and describes the target audience\
+    \ \nfor the tool, software package, dataset, or product, including user profiles,\
+    \ domains, \nand use cases.\"\n"
+  - "\"Should clearly communicate who would benefit from the solution and why, including\
+    \ \ntechnical requirements, usage context, and expected outcomes.\"\n"
+  - '"Must specify both technical and practical prerequisites where applicable."
+
+    '
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: "\"Target audience is unclear, too broad, or missing key details\
+      \ about user requirements \nand expected benefits\"\n"
+  - value: 1
+    description: "\"Clear, specific definition of target users, their needs, and how\
+      \ the solution \naddresses those needs\"\n"
+  positive_indicators:
+  - Explicitly defines target domains or application areas
+  - Specifies technical skill requirements or prerequisites
+  - Describes typical user roles (e.g., developers, researchers, practitioners)
+  - Outlines specific use cases and scenarios
+  - Addresses scalability considerations
+  - Identifies relevant technical and non-technical stakeholders
+  negative_indicators:
+  - No clear audience definition
+  - Overly broad or vague target users
+  - Missing technical prerequisites
+  - Unclear fit between capabilities and user needs
+  - Fails to address different user perspectives
+  uses_llm: true
+specific_research_questions:
+  criterion_name: Specific Research Questions/Objectives
+  criterion_description: "\"Assesses whether the publication breaks down its purpose\
+    \ into specific, measurable \nresearch questions or objectives that guide the\
+    \ investigation.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Missing specific questions/objectives, or they are too vague to guide
+      research
+  - value: 1
+    description: Contains specific, measurable questions/objectives that clearly guide
+      the work
+  positive_indicators:
+  - Lists numbered/bulleted specific questions or objectives
+  - Questions are concrete and focused (not overly broad)
+  - Questions are directly related to stated purpose
+  - Objectives are clearly measurable/assessable
+  negative_indicators:
+  - Questions are vague or too broad
+  - Objectives are not specific enough to guide investigation
+  - Missing explicit questions/objectives
+  - Questions don't align with stated purpose
+  uses_llm: true
+testability:
+  criterion_name: Testability/Verifiability
+  criterion_description: "\"Assesses whether the research questions and hypotheses\
+    \ can be tested or verified \nusing the proposed approach. Research hypothesis\
+    \ must be falsifiable.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Questions/hypotheses cannot be adequately tested with proposed approach
+  - value: 1
+    description: Clear path to testing/verifying all questions/hypotheses
+  positive_indicators:
+  - Explains how each question will be answered
+  - Describes methods to verify hypotheses
+  - Links questions to specific tests/experiments
+  - Identifies data/evidence needed for verification
+  negative_indicators:
+  - No clear way to test stated hypotheses
+  - Questions cannot be answered with proposed methods
+  - Missing connection between questions and methodology
+  - Verification approach is unclear or missing
+  uses_llm: true
+lit_review_coverage:
+  criterion_name: Literature Review Coverage & Currency
+  criterion_description: '"Assesses the comprehensiveness and timeliness of literature
+    review of similar works."
+
+    '
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Literature review is missing, sparse or outdated; no references
+  - value: 1
+    description: Adequate and up-to-date coverage of relevant research papers
+  positive_indicators:
+  - Contains a references and/or relevant works section
+  - Cites recent works (2023-2024)
+  - Covers major developments in the field
+  - Demonstrates thorough research effort
+  - Balanced coverage of different approaches
+  negative_indicators:
+  - No or minimal references or citations
+  - Missing key relevant works
+  - Over-reliance on outdated sources
+  - Significant gaps in coverage
+  - Biased selection of references
+  uses_llm: true
+lit_review_critical_analysis:
+  criterion_name: Literature Review Critical Analysis
+  criterion_description: '"Evaluates how well the publication analyzes and synthesizes
+    existing work in literature."
+
+    '
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: "\"No analysis of existing work; \nno citations or references to\
+      \ prior relevant works\"\n"
+  - value: 1
+    description: Thoughtful analysis and synthesis of existing work
+  positive_indicators:
+  - Contains a references and/or relevant works section
+  - Cites and analyzes strengths/weaknesses of existing research
+  - Compares different methodologies
+  - Synthesizes findings from multiple sources
+  - Provides insights about state of the art
+  negative_indicators:
+  - No or minimal references or citations
+  - Merely lists previous work without analysis
+  - No comparison between approaches
+  - Missing critical evaluation
+  - Superficial treatment of related work
+  uses_llm: true
+citations_relevance:
+  criterion_name: Citation Relevance
+  criterion_description: '"Evaluates whether the cited works are relevant and appropriately
+    support the research context."
+
+    '
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Missing citations or citations are irrelevant
+  - value: 1
+    description: Citations are relevant and support the work's context
+  positive_indicators:
+  - Contains a references or relevant works section
+  - Citations directly relate to the problem/methodology
+  - References support key claims and statements
+  - Citations include seminal works in the field
+  - References are properly attributed and contextualized
+  negative_indicators:
+  - Missing citations for key claims
+  - Citations are superficial or tangential
+  - References don't support the claims made
+  - Misrepresented or incorrectly cited works
+  uses_llm: true
+current_state_gap_identification:
+  criterion_name: Current State Gap Identification
+  criterion_description: '"Assesses whether the publication clearly identifies gaps
+    in existing work."
+
+    '
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: No gaps identified in existing work
+  - value: 1
+    description: Clear identification of gaps in existing research/work
+  positive_indicators:
+  - Contains a references and/or relevant works section
+  - Explicitly states limitations in current approaches from literature
+  - Identifies unaddressed problems/needs
+  - Points out areas needing improvement
+  - Shows understanding of field's current limitations
+  negative_indicators:
+  - No or minimal references or citations
+  - No discussion of limitations in existing work
+  - Fails to identify relevant gaps
+  - Unclear what problems remain unsolved
+  - Misidentifies or overstates gaps
+  uses_llm: true
+context_establishment:
+  criterion_name: Context Establishment
+  criterion_description: '"Evaluates how well the publication establishes context
+    for the topic covered."
+
+    '
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: No clear establishment of context
+  - value: 1
+    description: "\"Clear establishment of context and justification for the topic\
+      \ of \ndiscussion\"\n"
+  positive_indicators:
+  - Builds clear foundation
+  - Shows why the work is necessary
+  - Connects past work to current objectives
+  - Demonstrates understanding of field's evolution
+  negative_indicators:
+  - Missing context for the work
+  - Weak or missing justification
+  - Fails to show work's relevance
+  uses_llm: true
+problem_definition:
+  criterion_name: Problem Definition
+  criterion_description: "\"Evaluates how well the publication defines and articulates\
+    \ the real-world problem \nthat motivated the AI/ML solution. This includes the\
+    \ problem's scope, impact, \nand relevance to stakeholders.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: "\"Problem is unclear, poorly defined, or missing critical details\
+      \ about \nscope, impact, or stakeholder needs\"\n"
+  - value: 1
+    description: "\"Clear, comprehensive definition of the problem with well-articulated\
+      \ \nscope, impact, and stakeholder needs\"\n"
+  positive_indicators:
+  - Clearly states the challenge or opportunity
+  - Quantifies the problem's impact (e.g., costs, time, resources, societal impact)
+  - Identifies key stakeholders and their needs
+  - Describes current solution/process limitations
+  - Provides relevant metrics or indicators
+  - Explains why AI/ML is an appropriate solution approach
+  - Defines concrete success criteria
+  - Outlines constraints and requirements
+  - Establishes the broader context (organizational, social, regulatory, etc.)
+  negative_indicators:
+  - Vague or generic problem statement
+  - Missing quantification of problem impact
+  - Unclear stakeholder needs or requirements
+  - No explanation of why current solutions are insufficient
+  - Lacks contextual background
+  - Focuses only on technical aspects without practical justification
+  - Missing success criteria or desired outcomes
+  - Fails to demonstrate real-world relevance
+  uses_llm: true
+methodology_explanation:
+  criterion_name: Methodology Explanation
+  criterion_description: '"Evaluates whether the technical methodology is explained
+    clearly and comprehensively,
+
+    allowing readers to understand the technical approach."
+
+    '
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Missing or unclear methodology explanation
+  - value: 1
+    description: 'Clear methodology explanation with charts or tables where required.
+
+      '
+  positive_indicators:
+  - Clear explanation of technical approach
+  - Mathematical LaTex equations
+  - Logical flow of methodology
+  - Well-structured technical explanation
+  - Appropriate level of technical detail
+  - Diagrams or figures related to methodology are mentioned
+  - Supplementary materials for methodology is mentioned
+  negative_indicators:
+  - Vague or unclear explanations
+  - Missing key methodological steps
+  - Disorganized technical description
+  - Too high-level or too detailed
+  uses_llm: true
+step_by_step_guidance:
+  criterion_name: Step-by-Step Guidance Quality
+  criterion_description: "\"Evaluates how effectively the publication breaks down\
+    \ complex procedures into clear, \nlogical, and sequential steps that guide readers\
+    \ through the process. The steps should \nbuild upon each other in a coherent\
+    \ progression, with each step providing sufficient \ndetail for completion before\
+    \ moving to the next.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: "\"Steps are unclear, missing critical details, out of sequence,\
+      \ or have significant \ngaps that would prevent readers from successfully following\
+      \ along\"\n"
+  - value: 1
+    description: "\"Clear, well-structured sequence of steps that logically progress\
+      \ and contain \nsufficient detail for readers to successfully follow along\"\
+      \n"
+  positive_indicators:
+  - Clear numbering or ordering of steps
+  - Each step has a clear, specific objective
+  - Prerequisites or setup requirements are stated before relevant steps
+  - Steps build logically upon previous steps
+  - Appropriate level of detail for each step - neither too sparse nor overwhelming
+  - Critical decision points and options are clearly explained
+  - Complex procedures are broken down into manageable sub-steps
+  - Includes verification points to confirm successful completion
+  - References to previous steps when building upon them
+  - Clear transitions between major phases or sections
+  negative_indicators:
+  - Missing or unclear step sequence
+  - Steps require knowledge or actions not previously covered
+  - Inconsistent detail level across steps
+  - Large gaps between steps requiring readers to figure out intermediate steps
+  - Steps presented in illogical or inefficient order
+  - Critical steps missing or glossed over
+  - Unclear dependencies between steps
+  - No way to verify successful completion of steps
+  - Jumps between concepts without clear progression
+  - Assumes actions or knowledge without explanation
+  uses_llm: true
+assumptions_stated:
+  criterion_name: Assumptions Stated
+  criterion_description: '"Evaluates whether technical assumptions are clearly stated
+    and explained."
+
+    '
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Technical assumptions not stated
+  - value: 1
+    description: Clear statement of technical assumptions
+  positive_indicators:
+  - Explicit listing of assumptions
+  - Explains reasoning behind assumptions
+  - Acknowledges limitations of assumptions
+  - States impact of assumptions
+  negative_indicators:
+  - Missing critical assumptions
+  - Unstated implicit assumptions
+  - Unclear assumption implications
+  - Unjustified assumptions
+  uses_llm: true
+solution_decisions:
+  criterion_name: Solution Approach and Design Decisions
+  criterion_description: "\"Evaluates whether the overall solution approach and specific\
+    \ design decisions are \nappropriate and well-justified. This includes explanation\
+    \ of methodology choice, \narchitectural decisions, and implementation choices.\
+    \ Common/standard approaches may \nneed less justification than novel or unconventional\
+    \ choices.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Solution approach and design choices not adequately explained or
+      justified
+  - value: 1
+    description: "\"Solution approach is either obviously appropriate OR well-justified\
+      \ if non-standard, \nAND key design decisions are clearly explained with alternatives\
+      \ considered\"\n"
+  positive_indicators:
+  - Uses and justifies appropriate overall approach
+  - Explains key architectural/design choices
+  - Discusses alternatives considered
+  - Analyzes trade-offs between options
+  - Justifies decisions based on requirements
+  - Documents why specific choices were preferred
+  - Acknowledges limitations of chosen solutions
+  negative_indicators:
+  - Unexplained solution approach
+  - Unclear design choices
+  - Missing alternative analysis
+  - No trade-off discussion
+  - Unjustified deviations from standard practices
+  - Ignores obvious alternatives
+  - Poor rationale for decisions
+  uses_llm: true
+experimental_protocol:
+  criterion_name: Experimental Protocol
+  criterion_description: "\"Assesses whether the publication outlines a clear, high-level\
+    \ approach for \nconducting the study.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: No clear experimental protocol outlined
+  - value: 1
+    description: Clear, well-structured experimental protocol
+  positive_indicators:
+  - Outlines key phases/steps of the study
+  - Provides high-level workflow
+  - Shows logical sequence of investigation
+  - Explains overall approach
+  negative_indicators:
+  - Missing study workflow
+  - Unclear sequence of steps
+  - Disorganized approach
+  - Jumps directly to implementation details
+  uses_llm: true
+scope_boundaries:
+  criterion_name: Study Scope & Boundaries
+  criterion_description: "\"Evaluates whether the publication clearly defines the\
+    \ boundaries, assumptions, and \nlimitations of the study.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: No clear definition of study scope or boundaries
+  - value: 1
+    description: Clear definition of what's included and excluded from the study
+  positive_indicators:
+  - Explicitly states what is in and out of scope
+  - Lists key assumptions made
+  - Defines constraints and limitations
+  - Clarifies boundary conditions
+  negative_indicators:
+  - Unclear study boundaries
+  - Missing important assumptions
+  - Undefined constraints
+  - Ambiguous scope
+  uses_llm: true
+evaluation_framework:
+  criterion_name: Evaluation Framework
+  criterion_description: '"Assesses whether the publication defines a clear framework
+    for evaluating results."
+
+    '
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: No clear evaluation framework
+  - value: 1
+    description: Clear evaluation framework defined
+  positive_indicators:
+  - Defines key metrics
+  - Specifies comparison baselines
+  - Outlines evaluation criteria
+  - Explains measurement approach
+  negative_indicators:
+  - Missing evaluation metrics
+  - Unclear success criteria
+  - No baseline comparisons
+  - Vague measurement approach
+  uses_llm: true
+validation_strategy:
+  criterion_name: Validation Strategy
+  criterion_description: '"Evaluates whether the publication outlines a clear approach
+    to validating results."
+
+    '
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: No validation strategy outlined
+  - value: 1
+    description: Clear validation strategy defined
+  positive_indicators:
+  - Describes validation approach
+  - Outlines verification methods
+  - Considers robustness
+  - Includes quality checks
+  negative_indicators:
+  - Missing validation methods
+  - Unclear verification approach
+  - No quality assurance plan
+  - Ignored robustness considerations
+  uses_llm: true
+dataset_sources:
+  criterion_name: Dataset Sources & Collection
+  criterion_description: "\"Evaluates whether dataset(s) used in the study are properly\
+    \ documented. For existing \ndatasets, proper citation and sourcing is required\
+    \ for each. For new datasets, the \ncollection methodology must be described.\
+    \ For benchmark studies or comparative analyses, \nall datasets must be properly\
+    \ documented.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  - has_dataset_urls
+  scoring_logic:
+  - value: 0
+    description: Missing or inadequate dataset source information
+  - value: 1
+    description: Source or collection information provided for all datasets
+  positive_indicators:
+  - For existing datasets:
+    - Clear citation for each dataset used
+    - Links to original dataset sources
+    - Proper attribution for all sources
+    - Version/date of each dataset mentioned
+  - For new datasets:
+    - Collection methodology explained
+    - Data gathering process documented
+    - Sampling approach described
+    - Collection timeline provided
+  - For multiple datasets:
+    - Clear organization of dataset information
+    - Consistent documentation across all datasets
+    - Relationship between datasets explained if relevant
+  negative_indicators:
+  - Missing sources for any dataset
+  - Unclear data origins
+  - No collection methodology for new data
+  - Incomplete sourcing information
+  - Missing attribution where required
+  - Inconsistent documentation across datasets
+  uses_llm: true
+dataset_description:
+  criterion_name: Dataset Description
+  criterion_description: "\"Assesses whether dataset(s) are comprehensively described,\
+    \ including their \ncharacteristics, structure, content, and rationale for selection.\
+    \ For multiple datasets, \ncomparability and relationships should be clear.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Missing or inadequate dataset descriptions
+  - value: 1
+    description: Clear and complete description of all datasets
+  positive_indicators:
+  - Each dataset's size and scope described
+  - Data statistics provided for all datasets
+  - Class distributions (if applicable)
+  - Data quality characteristics
+  - Rationale for dataset selection explained
+  negative_indicators:
+  - Missing information for any dataset
+  - Unclear data structures
+  - No statistics provided
+  - Missing information on selection criteria
+  uses_llm: true
+data_requirements:
+  criterion_name: Data Requirements Specification
+  criterion_description:
+  - "\"For implementations requiring data: evaluates whether the publication clearly\
+    \ \nspecifies the data requirements needed.\"\n"
+  - "\"When data is needed, must define the expected data characteristics, format,\
+    \ \nand structure for the implementation to work.\"\n"
+  - "\"The key differentiator is clear specification of data needs that enables \n\
+    readers to prepare appropriate data for data-dependent implementations.\"\n"
+  - '"Not applicable to implementations that don''t require data (e.g., API setup
+    guides)."
+
+    '
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: '"Publication requires data but lacks clear specification of data
+      requirements"
+
+      '
+  - value: 1
+    description: "\"Publication either clearly defines required data characteristics\
+      \ OR doesn't \nrequire data for implementation\"\n"
+  positive_indicators:
+  - Specifies required data fields/columns
+  - Describes expected data format
+  - States minimum data volume needed
+  - Explains data quality requirements
+  - Shows example data structure
+  - Details required data types
+  - Specifies data preprocessing needs
+  - Indicates data granularity
+  - States time period requirements
+  - Implementation doesn't require data
+  negative_indicators:
+  - Requires data but missing specifications
+  - Unclear data format when needed
+  - Vague about required data
+  - Assumes data availability
+  - No example data structure for data tasks
+  - Skips data requirements for data tasks
+  - Unclear preprocessing needs for data tasks
+  uses_llm: true
+dataset_selection_creation:
+  criterion_name: Dataset Selection or Creation
+  criterion_description: "\"Evaluates whether the rationale for dataset selection\
+    \ is explained, or for new \ndatasets, whether the creation methodology is properly\
+    \ documented.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Missing selection criteria or creation methodology
+  - value: 1
+    description: Clear explanation of selection or detailed creation methodology
+  positive_indicators:
+  - For selected datasets:
+    - Selection criteria explained
+    - Justification for choices
+    - Suitability discussed
+  - For created datasets:
+    - Collection methodology detailed
+    - Sampling approach explained
+    - Creation process documented
+  negative_indicators:
+  - No explanation for dataset choice
+  - Missing creation methodology
+  - Unclear selection criteria
+  - Incomplete documentation of process
+  uses_llm: true
+dataset_processing:
+  criterion_name: Data Processing Methodology
+  criterion_description: '"Evaluates whether data processing steps are clearly documented
+    and justified.
+
+    This includes any preprocessing, missing data handling, anomalies handling,
+
+    and other data clean-up processing steps."
+
+    '
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Missing or unclear processing steps
+  - value: 1
+    description: Properly documented processing methodology with justification
+  positive_indicators:
+  - Cleaning steps documented
+  - Data transformations explained
+  - Feature engineering described
+  - Handling of missing values
+  - Outlier handling
+  - Normalization/scaling approaches
+  - Data filtering criteria
+  negative_indicators:
+  - Missing preprocessing steps
+  - Unclear transformations
+  - Unexplained data handling
+  - Missing rationale for choices
+  uses_llm: true
+dataset_stats:
+  criterion_name: Basic Dataset Stats
+  criterion_description: "\"Evaluates whether the publication provides clear documentation\
+    \ of fundamental \ndataset properties\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Missing or unclear basic dataset characteristics
+  - value: 1
+    description: Comprehensive documentation of basic dataset characteristics
+  positive_indicators:
+  - Total number of samples/records
+  - Data formats and sizes
+  - Number of features/attributes
+  - Number of classes/labels if applicable
+  - Data types of each field
+  - File formats and organization
+  - Dataset splits if applicable (train/test/validation)
+  - Temporal coverage if applicable
+  - Spatial coverage if applicable
+  negative_indicators:
+  - Missing size information
+  - Unclear data formats
+  - Undocumented data types
+  - Missing split information when relevant
+  - Unclear coverage details when relevant
+  uses_llm: true
+implementation_details:
+  criterion_name: Implementation Details
+  criterion_description: 'Assesses whether sufficient implementation details are provided
+    with enough clarity.
+
+    Focuses on HOW the methodology was implemented.
+
+    '
+  required_items:
+  - publication_title
+  - publication_description
+  - has_code_repository
+  - has_dataset_urls
+  - has_supplementary_files
+  scoring_logic:
+  - value: 0
+    description: Missing implementation related informatino
+  - value: 1
+    description: Clear implementation related information is provided
+  positive_indicators:
+  - Specific technical specifications
+  - Implementation steps detailed
+  - Code structure explained or code snippets shown
+  - Key implementation decisions documented
+  - Code repository or resources mentioned or linked
+  - Dataset documentation is linked or mentioned
+  - Supplementary materials for implementation are mentioned
+  negative_indicators:
+  - Missing crucial details of how the experiment was implemented
+  - Unclear implementation process
+  - Vague technical specifications
+  - Important steps omitted
+  - No mention of supplementary materials such as repository, other links, etc.
+  uses_llm: true
+parameters_configuration:
+  criterion_name: Parameters & Configuration
+  criterion_description: '"Evaluates whether parameter choices and configuration settings
+    are clearly specified
+
+    and justified where non-standard. Includes model hyperparameters, system configurations,
+
+    and any tuning methodology used."
+
+    '
+  required_items:
+  - publication_title
+  - publication_description
+  - has_code_repository
+  scoring_logic:
+  - value: 0
+    description: '"Missing critical parameter specifications or using non-standard
+      configurations
+
+      without justification"
+
+      '
+  - value: 1
+    description: '"Clear parameter documentation with rationale and tuning methodology
+      where relevant"
+
+      '
+  positive_indicators:
+  - Lists key parameters and their values
+  - Explains parameter selection process if non-standard
+  - Documents configuration settings
+  - Describes tuning methodology if relevant
+  - Provides reasoning for critical parameter choices
+  negative_indicators:
+  - Missing values for important parameters
+  - Unexplained non-standard parameter choices
+  - Unclear configuration settings
+  - No mention of tuning process where needed
+  - Using unusual settings without justification
+  uses_llm: true
+experimental_environment:
+  criterion_name: Experimental Environment
+  criterion_description:
+  - 'Evaluates whether the computational environment and resources used for the work
+
+    are clearly specified when relevant.
+
+    '
+  - 'This includes hardware specifications, software versions, and runtime environment
+    details
+
+    necessary for understanding the implementation context.
+
+    '
+  - 'This may not be applicable for some publications (e.g., theoretical work,
+
+    high-level surveys, or conceptual overviews). In such cases, this criterion should
+
+    receive a score of 0 with explanation noting it''s not applicable."
+
+    '
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: 'Either not applicable for this type of publication, or missing critical
+      environment
+
+      specifications where they are needed
+
+      '
+  - value: 1
+    description: 'Clear specification of relevant environmental details and resource
+      requirements
+
+      '
+  positive_indicators:
+  - Specifies hardware used (CPU, GPU, memory if relevant)
+  - States computational resources required
+  - Provides relevant software versions
+  - Documents runtime environment
+  - Includes execution times or resource usage where relevant
+  negative_indicators:
+  - Missing hardware specifications where performance is discussed
+  - Unclear computational requirements
+  - Unspecified runtime environment where relevant
+  - No indication of resource needs
+  - Missing crucial version information
+  uses_llm: true
+tools_frameworks_services:
+  criterion_name: Tools, Frameworks & Services
+  criterion_description:
+  - Documents the key tools, frameworks, 3rd party services used in the implementation
+    when relevant.
+  - "Standard/mainstream tools (e.g., PyTorch, TensorFlow, HuggingFace) need only\
+    \ be mentioned \nwithout justification.\n"
+  - Non-standard or custom tools should be explained.
+  - Third party tools and services should be explained.
+  - "This may not be applicable for some publications (e.g., theoretical work, surveys)\
+    \ and \nshould receive a score of 0 with explanation noting it's not applicable.\n"
+  required_items:
+  - publication_title
+  - publication_description
+  - has_code_repository
+  scoring_logic:
+  - value: 0
+    description: 'Either not applicable for this type of publication, or missing critical
+      tool/framework
+
+      information where needed.
+
+      '
+  - value: 1
+    description: 'Clear specification of tools/frameworks used. If non-standard choices
+      made, they are
+
+      properly justified.
+
+      '
+  positive_indicators:
+  - Lists main tools and frameworks used
+  - Justifies use of non-standard or custom tools
+  - Specifies versions for reproducibility where relevant
+  - Explains custom implementations when used
+  - Documents tool integration if complex
+  negative_indicators:
+  - Missing critical tool/framework information
+  - Unexplained use of non-standard tools
+  - Unclear custom implementation details
+  - Missing version information where needed
+  - No explanation for avoiding standard tools
+  uses_llm: true
+implementation_considerations:
+  criterion_name: Implementation Considerations
+  criterion_description: 'Evaluates coverage of practical aspects of implementing
+    or applying the model, concept,
+
+    app, or tool described in the publication.
+
+    '
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Missing or inadequate coverage of implementation considerations
+  - value: 1
+    description: Clear discussion of practical implementation aspects
+  positive_indicators:
+  - Discussion of common challenges
+  - Resource requirements or constraints
+  - Scalability considerations
+  - Performance implications
+  - Integration aspects
+  - Best practices for implementation
+  negative_indicators:
+  - No discussion of practical challenges
+  - Missing important constraints
+  - Overlooking real-world limitations
+  - Ignoring implementation complexity
+  - No guidance on implementation
+  uses_llm: true
+deployment_details:
+  criterion_name: Deployment Considerations
+  criterion_description: "\"Evaluates whether the publication adequately discusses\
+    \ deployment requirements, \nconsiderations, and challenges for implementing the\
+    \ solution in a production \nenvironment. This includes either actual deployment\
+    \ details if deployed, or thorough \nanalysis of deployment requirements if proposed.\"\
+    \n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Missing or inadequate discussion of deployment considerations
+  - value: 1
+    description: "\"Clear discussion of deployment requirements, considerations, or\
+      \ actual deployment \ndetails if implemented\"\n"
+  positive_indicators:
+  - Discusses infrastructure requirements
+  - Addresses resource needs (compute, memory, storage)
+  - Considers system dependencies
+  - Explains integration requirements
+  - Discusses scalability considerations
+  - Addresses security requirements
+  - Mentions monitoring needs
+  - Considers performance requirements
+  - Details environment setup
+  - Discusses potential challenges
+  negative_indicators:
+  - No mention of deployment requirements
+  - Missing infrastructure considerations
+  - Ignores resource requirements
+  - Overlooks integration needs
+  - Fails to address practical deployment challenges
+  - No discussion of production environment needs
+  uses_llm: true
+monitoring_maintenance:
+  criterion_name: Monitoring and Maintenance Considerations
+  criterion_description: "\"Evaluates whether the publication discusses how to monitor\
+    \ the solution's performance \nand maintain its effectiveness over time. This\
+    \ includes monitoring strategies, maintenance \nrequirements, and operational\
+    \ considerations for keeping the solution running optimally.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Missing or inadequate discussion of monitoring and maintenance needs
+  - value: 1
+    description: "\"Clear discussion of monitoring approaches and maintenance requirements\
+      \ for \nkeeping the solution operational and effective\"\n"
+  positive_indicators:
+  - Discusses key metrics to monitor
+  - Describes logging requirements
+  - Addresses performance monitoring
+  - Explains model/system health checks
+  - Discusses data drift detection
+  - Outlines maintenance schedules
+  - Describes update procedures
+  - Addresses error handling
+  - Explains troubleshooting approaches
+  - Considers retraining requirements
+  negative_indicators:
+  - No mention of monitoring needs
+  - Missing maintenance considerations
+  - Overlooks system health tracking
+  - Ignores performance degradation
+  - No discussion of updates/maintenance
+  - Fails to address operational issues
+  uses_llm: true
+performance_metrics:
+  criterion_name: Performance Metrics Analysis
+  criterion_description: "\"Evaluates whether appropriate performance metrics are\
+    \ used and properly analyzed \nto demonstrate the success or effectiveness of\
+    \ the work.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Missing or inappropriate performance metrics
+  - value: 1
+    description: '"Relevant and comprehensive performance analysis with multiple relevant
+      metrics"
+
+      '
+  positive_indicators:
+  - Appropriate metrics for the task
+  - Clear presentation of results
+  - Metrics properly explained
+  - Results properly quantified
+  - Error margins/variance reported
+  negative_indicators:
+  - Missing crucial metrics
+  - Inappropriate metric choice
+  - Unclear measurement approach
+  - Incomplete results reporting
+  - Missing error analysis
+  uses_llm: true
+comparative_analysis:
+  criterion_name: Comparative Analysis
+  criterion_description: "\"Assesses whether results are properly compared against\
+    \ relevant baselines or \nstate-of-the-art alternatives. At least 4 or 5 alternatives\
+    \ are compared with.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: '"No comparison with baselines or state-of-the-art alternatives;
+      or,
+
+      not sufficient comparisons (e.g. 4 or 5 alternatives)"
+
+      '
+  - value: 1
+    description: Clear comparison with appropriate baselines/alternatives
+  positive_indicators:
+  - Relevant baselines identified
+  - SOTA comparisons and benchmarks
+  - Fair comparison methodology
+  - Performance differences analyzed
+  - Trade-offs discussed
+  - Consistent comparison metrics
+  negative_indicators:
+  - Missing relevant comparisons
+  - Unfair comparison methodology
+  - Incomplete analysis
+  - Inconsistent metrics
+  uses_llm: true
+statistical_analysis:
+  criterion_name: Statistical Analysis
+  criterion_description: '"Evaluates whether appropriate statistical methods are used
+    to validate results."
+
+    '
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Missing or inappropriate statistical analysis
+  - value: 1
+    description: Appropriate statistical analysis of results
+  positive_indicators:
+  - Proper statistical tests used
+  - Significance levels reported
+  - Confidence intervals provided
+  - Statistical assumptions verified
+  - Robustness checks performed
+  negative_indicators:
+  - Missing statistical validation
+  - Inappropriate statistical methods
+  - Unclear significance levels
+  - Statistical assumptions violated
+  uses_llm: true
+key_results:
+  criterion_name: Key Results
+  criterion_description: "\"Evaluates whether the main results and outcomes of the\
+    \ research are clearly \npresented in an understandable way.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Key results missing or unclear
+  - value: 1
+    description: Clear presentation of main results
+  positive_indicators:
+  - Clearly states what the research found
+  - Presents important outcomes or measurements
+  - Uses appropriate numbers/metrics where relevant
+  - Includes relevant comparisons if applicable
+  - Uses clear visualizations if needed
+  - Makes results understandable without oversimplifying
+  - Maintains accuracy while being accessible
+  negative_indicators:
+  - Missing key results
+  - Results presented too technically
+  - Important findings omitted
+  - Results too vague or oversimplified
+  - Unclear what was actually found
+  - Missing important measurements
+  - Results presented without context
+  uses_llm: true
+results_interpretation:
+  criterion_name: Results Interpretation
+  criterion_description: "\"Assesses whether results are properly interpreted and\
+    \ their implications \nexplained.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Missing or inadequate interpretation of results
+  - value: 1
+    description: Clear and well-reasoned interpretation
+  positive_indicators:
+  - Clear explanation of findings
+  - Results contextualized
+  - Implications discussed
+  - Insights highlighted
+  - Unexpected results addressed
+  negative_indicators:
+  - Missing interpretation
+  - Superficial analysis
+  - Overreaching conclusions
+  - Ignored anomalies
+  uses_llm: true
+solution_impact_assessment:
+  criterion_name: Solution Impact Assessment
+  criterion_description: "\"Evaluates how well the publication quantifies and demonstrates\
+    \ the real-world \nimpact and value created by implementing the AI/ML solution.\
+    \ This includes measuring \nimprovements in organizational metrics (cost savings,\
+    \ efficiency gains, productivity), \nuser-centered metrics (satisfaction, adoption,\
+    \ time saved), and where applicable, \nbroader impacts (environmental, societal\
+    \ benefits). The focus is on concrete \noutcomes and value creation, not technical\
+    \ performance measures.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: "\"Impact is not quantified, poorly measured, or relies solely on\
+      \ technical metrics \nwithout connecting to real-world value\"\n"
+  - value: 1
+    description: "\"Clear quantification of impact with specific, measurable improvements\
+      \ in relevant \nmetrics such as cost savings, efficiency gains, user satisfaction,\
+      \ or societal benefits\"\n"
+  positive_indicators:
+  - Quantifies improvements in key performance indicators
+  - Presents clear before-and-after comparisons
+  - Measures cost savings or efficiency gains
+  - Demonstrates time or resource savings
+  - Shows improvement in user/stakeholder satisfaction
+  - Quantifies environmental impact where applicable
+  - Measures societal benefits where relevant
+  - Includes return on investment calculations
+  - Reports productivity improvements
+  - Shows reduction in errors or risks
+  - Demonstrates scalability of impact
+  - Quantifies both direct and indirect benefits
+  - Provides concrete metrics such as cost reduction percentage, process time reduction,
+    satisfaction scores
+  - Shows impact on resource utilization and allocation
+  - Measures compliance or risk reduction benefits
+  negative_indicators:
+  - Focuses only on technical metrics (accuracy, precision, etc.)
+  - Vague or qualitative statements about impact
+  - Missing baseline comparisons
+  - No concrete numbers or measurements
+  - Fails to connect improvements to stakeholder value
+  - Omits important impact dimensions
+  - No long-term impact assessment
+  - Missing cost-benefit analysis
+  - Unrealistic or unsubstantiated claims
+  - Lacks quantifiable evidence of improvements
+  - No measurement of user or stakeholder benefits
+  uses_llm: true
+constraints_boundaries_limitations:
+  criterion_name: Constraints, Boundaries, and Limitations
+  criterion_description:
+  - "\"Evaluates whether the publication clearly defines when and where the work is\
+    \ \napplicable (boundaries), what constrains its effectiveness (constraints),\
+    \ and \nwhat its shortcomings are (limitations).\"\n"
+  - "\"Must identify specific circumstances where the solution works best, where it\
+    \ \nstruggles, and where it fails or is unsuitable.\"\n"
+  - "\"Should discuss both technical and practical aspects that limit or constrain\
+    \ \nthe work's applicability or effectiveness.\"\n"
+  - "\"The key differentiator is transparent communication about the bounds of \n\
+    applicability and effectiveness, along with known limitations.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: "\"Publication does not adequately discuss constraints, boundaries\
+      \ of applicability, \nand limitations\"\n"
+  - value: 1
+    description: "\"Publication clearly defines where/when the work is effective,\
+      \ what constrains it, \nand what its limitations are\"\n"
+  positive_indicators:
+  - Specifies where/when solution works best
+  - Identifies where solution struggles
+  - States performance boundaries
+  - Describes scaling constraints
+  - Acknowledges known shortcomings
+  - Discusses performance trade-offs
+  - Identifies failure cases
+  - Explains solution constraints
+  - Details accuracy limitations
+  - Discusses edge cases
+  - Acknowledges inherent limitations
+  negative_indicators:
+  - No discussion of boundaries
+  - Omits known limitations
+  - Unclear about applicability
+  - Overstates capabilities
+  - Ignores known issues
+  - Vague about constraints
+  - Fails to define limits
+  - Unrealistic claims
+  - Hides known problems
+  - Only lists basic requirements
+  uses_llm: true
+key_findings:
+  criterion_name: Key Findings
+  criterion_description: "\"Evaluates whether the main findings and contributions\
+    \ of the work are clearly \nsummarized and their significance explained.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Missing or inadequate summary of findings
+  - value: 1
+    description: Appropriate and well-structured summary of key findings
+  positive_indicators:
+  - Clear summary of main results
+  - Key contributions highlighted
+  - Findings properly contextualized
+  - Major insights emphasized
+  - Connection to original objectives shown
+  negative_indicators:
+  - Missing important findings
+  - Unclear main contributions
+  - Disconnected from objectives
+  - No clear takeaways
+  uses_llm: true
+significance_and_implications:
+  criterion_name: Significance and Implications of Work
+  criterion_description: "\"Assesses whether the broader significance and implications\
+    \ of the work are properly \ndiscussed.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: No discussion of implications
+  - value: 1
+    description: Clear discussion of work's implications
+  positive_indicators:
+  - Why this matters explained
+  - Practical implications explained
+  - Solves important problems
+  - Theoretical implications discussed
+  - Impact on field addressed
+  - Real-world applications noted
+  - Significance of contributions explained
+  - Valuable for decision making
+  - Impacts future research
+  negative_indicators:
+  - Missing implications discussion
+  - Unclear significance
+  - Overstated impact
+  - Disconnected from findings
+  - Limited consideration of broader context
+  - Limited practical value
+  - Minor theoretical impact
+  - Unclear importance
+  - Limited applicability
+  - Minimal influence on field
+  uses_llm: true
+features_benefits:
+  criterion_name: Features and Benefits Analysis
+  criterion_description:
+  - "\"Evaluates the clarity and completeness of feature descriptions and their \n\
+    corresponding benefits to users.\"\n"
+  - '"Should connect technical capabilities to practical outcomes and user value."
+
+    '
+  - '"Must include both functional features and their practical applications."
+
+    '
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: "\"Features are poorly described, benefits are unclear, or connection\
+      \ between \nfeatures and value is weak\"\n"
+  - value: 1
+    description: "\"Clear description of key features with well-articulated benefits\
+      \ and value \nproposition\"\n"
+  positive_indicators:
+  - Comprehensive list of core features
+  - Clear mapping between features and benefits
+  - Quantified performance metrics where applicable
+  - Real-world application examples
+  - Integration capabilities and requirements
+  - Technical specifications and limitations
+  - Usage costs or resource requirements (if applicable)
+  - Installation and deployment requirements
+  - API documentation or interface descriptions
+  negative_indicators:
+  - Missing critical feature information
+  - Features listed without clear benefits
+  - Vague or promotional descriptions
+  - Lack of technical specifications
+  - Missing integration details
+  - Unclear value proposition
+  uses_llm: true
+competitive_differentiation:
+  criterion_name: Competitive Differentiation
+  criterion_description:
+  - "\"Evaluates how effectively the publication demonstrates the solution's unique\
+    \ value \nproposition and advantages compared to alternatives.\"\n"
+  - "\"Should highlight distinctive features, capabilities, or approaches that set\
+    \ the \nsolution apart from existing alternatives.\"\n"
+  - '"Must provide concrete evidence or examples of advantages."
+
+    '
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: '"Advantages are unclear, unsupported, or fail to differentiate from
+      alternatives"
+
+      '
+  - value: 1
+    description: "\"Clear, well-supported demonstration of unique value proposition\
+      \ and advantages \nover alternatives\"\n"
+  positive_indicators:
+  - Specific comparison points with alternative solutions
+  - Quantified performance or efficiency advantages
+  - Unique technical capabilities or approaches
+  - Novel feature combinations or integrations
+  - Specific use-case advantages
+  - User testimonials or adoption examples
+  - Independent benchmarks or evaluations
+  - Open source benefits (if applicable)
+  - Licensing advantages
+  negative_indicators:
+  - No clear differentiation from alternatives
+  - Unsupported claims of superiority
+  - Vague or generic advantages
+  - Missing comparison with alternatives
+  - Lack of specific examples or evidence
+  - Unclear positioning in the ecosystem
+  uses_llm: true
+future_directions:
+  criterion_name: Future Directions
+  criterion_description: '"Evaluates whether meaningful future work and research directions
+    are identified."
+
+    '
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: No discussion of future directions
+  - value: 1
+    description: Clear and meaningful future directions identified
+  positive_indicators:
+  - Specific future work outlined
+  - Research gaps identified
+  - Potential improvements suggested
+  - New research questions posed
+  - Extension possibilities discussed
+  negative_indicators:
+  - Missing future directions
+  - Vague suggestions
+  - Obvious/trivial extensions
+  - No connection to limitations
+  - No clear path forward
+  uses_llm: true
+originality:
+  criterion_name: Originality of Work
+  criterion_description: "\"Evaluates whether the work presents an original contribution,\
+    \ meaning work \nthat hasn't been done before. This includes novel analyses, comprehensive\
+    \ \ncomparisons, new methodologies, or new implementations.\nExample 1: A benchmark\
+    \ study comparing existing methods would score 1 here, \nif it's the first benchmark\
+    \ study even if the methods have existed before.\nExample 2: A tool developed\
+    \ by integrating existing tools in new ways would\nbe original work; or an existing\
+    \ tool modified to work in a new industry\nor domain would also be considered\
+    \ original.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Repeats or replicates existing work
+  - value: 1
+    description: Clear original contribution not previously published
+  positive_indicators:
+  - First study, model, technique, tool or app of its kind
+  - Novel analysis or comparison
+  - Unique combination of existing methods
+  - New application with substantial analysis
+  - Original experimental design
+  negative_indicators:
+  - Replicates existing studies
+  - Similar work already published
+  - Minor variations of version update of existing work
+  - Standard application without new analysis
+  uses_llm: true
+innovation:
+  criterion_name: Innovation in Methods/Approaches
+  criterion_description: "\"Evaluates whether the authors created new methods, algorithms,\
+    \ or applications. \nThis specifically looks for technical innovation, not just\
+    \ original analysis. \nExample: A benchmark study comparing existing methods would\
+    \ score 0 here, even \nif original and valuable.\nExample 2: An existing tool\
+    \ modified to work in a new domain would not be \nconsidered an innovation.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: No new methods/approaches created
+  - value: 1
+    description: Created new method or approach
+  positive_indicators:
+  - New algorithm created
+  - Novel method developed
+  - New technical approach introduced
+  - Original framework created
+  - Innovative solution designed
+  negative_indicators:
+  - Only uses existing methods
+  - Applies standard approaches
+  - Combines existing techniques
+  - Parameter modifications only
+  - Implementation variations only
+  uses_llm: true
+advancement:
+  criterion_name: Advancement of Knowledge or Practice
+  criterion_description: "\"Evaluates how the work advances knowledge or practice,\
+    \ whether through \noriginal analysis or innovative methods or implementation.\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: No clear advancement of knowledge or practice
+  - value: 1
+    description: Clear knowledge or practice advancement with evidence
+  positive_indicators:
+  - New insights provided
+  - Knowledge gaps filled
+  - Performance differences quantified
+  - Limitations identified
+  - Better understanding enabled
+  negative_indicators:
+  - No new insights
+  - Minor or trivial findings
+  - Unclear conclusions
+  - Weak evidence
+  - Limited analysis
+  uses_llm: true
+code_documentation:
+  criterion_name: Code & Dependencies
+  criterion_description: "\"Evaluates whether code is available and dependencies are\
+    \ properly documented \nfor reproduction.\"\n"
+  required_items:
+  - publication_description
+  - has_code_repository
+  scoring_logic:
+  - value: 0
+    description: Code not linked or mentioned, or not applicable
+  - value: 1
+    description: Code repository is linked or mentioned
+  positive_indicators:
+  - Code repository provided
+  - Dependencies listed
+  - Installation instructions clear
+  - Package requirements specified
+  - Setup scripts available
+  negative_indicators:
+  - Missing code
+  - Unclear dependencies
+  - Poor documentation
+  - Installation gaps
+  - Missing requirements
+  uses_llm: true
+data_source_and_collection:
+  criterion_name: Data Source and Collection
+  criterion_description: "\"Evaluates whether the publication clearly describes where\
+    \ the data comes from \nand the strategy for data collection or generation. This\
+    \ criterion only applies\nif the publication involved sourcing and creation of\
+    \ the data by authors.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: '"Either Data sources or collection strategy not clearly described;
+      or
+
+      the authors didnt themselves create the dataset involved in the publication."
+
+      '
+  - value: 1
+    description: '"Clear description of data sources and systematic collection/generation
+      strategy"
+
+      '
+  positive_indicators:
+  - Clearly identifies all data sources
+  - Explains why these sources were chosen
+  - Details the collection or generation strategy
+  - Describes any sampling approaches used
+  - Documents any data purchase or licensing arrangements
+  - API documentation and credentials process
+  - Data source URLs and access methods
+  - Database connection details
+  - Web scraping targets and permissions
+  - Data purchase/licensing instructions
+  - Generation scripts for synthetic data
+  - Annotation guidelines for manual data
+  negative_indicators:
+  - Unclear or incomplete source information
+  - Missing rationale for source selection
+  - Ad-hoc or poorly defined collection strategy
+  - Undocumented sampling decisions
+  - Missing source information
+  - Unclear access methods
+  - Undocumented permissions
+  - Missing generation scripts
+  - Incomplete annotation guidelines
+  uses_llm: true
+data_inclusion_criteria:
+  criterion_name: Data Inclusion and Filtering Criteria
+  criterion_description: "\"Assesses whether the publication defines clear criteria\
+    \ for what data is \nincluded or excluded from the dataset\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Missing or unclear inclusion/exclusion criteria
+  - value: 1
+    description: Well-defined criteria for data inclusion and exclusion
+  positive_indicators:
+  - Clear rules for data inclusion
+  - Explicit exclusion criteria
+  - Rationale for filtering decisions
+  - Documentation of edge cases
+  - Quantification of filtered data
+  negative_indicators:
+  - No clear inclusion/exclusion rules
+  - Missing justification for criteria
+  - Inconsistent application of criteria
+  - Undocumented filtering decisions
+  uses_llm: true
+dataset_creation_quality_control:
+  criterion_name: Dataset Creation Quality Control Methodology
+  criterion_description: "\"Evaluates the systematic approach to ensuring data quality\
+    \ during \ncollection, generation, and processing\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Missing or inadequate quality control methodology
+  - value: 1
+    description: Well-defined quality control process with clear validation steps
+  positive_indicators:
+  - Defined quality control process
+  - Clear validation checkpoints
+  - Error detection methods
+  - Quality assurance procedures
+  - Documentation of quality metrics
+  negative_indicators:
+  - No quality control process
+  - Missing validation steps
+  - Unclear quality standards
+  - Ad-hoc quality checks
+  uses_llm: true
+dataset_bias_consideration:
+  criterion_name: Dataset Bias and Representation Consideration
+  criterion_description: "\"Assesses whether potential biases in data collection/generation\
+    \ are identified \nand addressed. For synthetic or naturally bias-free datasets,\
+    \ clear documentation \nof why bias is not a concern is sufficient.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: '"No consideration of potential biases or representation issues where
+      relevant"
+
+      '
+  - value: 1
+    description: "\"Either:\n  - Thorough analysis of potential biases and representation\
+      \ considerations\n  OR\n  - Clear explanation of why bias is not a concern (e.g.,\
+      \ synthetic data with \n    controlled generation, complete population coverage,\
+      \ or bias-irrelevant \n    technical datasets)\"\n"
+  positive_indicators:
+  - Identifies potential sources of bias where relevant
+  - Analyzes data representation where applicable
+  - Documents demographic distribution if relevant
+  - Addresses sampling bias where applicable
+  - Discusses limitations and skews if present
+  - Clearly explains why bias is not a concern for bias-irrelevant datasets
+  - Documents the controlled generation process for synthetic data
+  - Demonstrates comprehensive coverage for complete population datasets
+  negative_indicators:
+  - No bias analysis for potentially biased data sources
+  - Missing representation assessment where relevant
+  - Unaddressed sampling issues in sampled datasets
+  - Ignored demographic skews in human-related data
+  - No explanation of bias-free nature for synthetic/technical datasets
+  - Assumes bias-free without justification
+  uses_llm: true
+dataset_statistical_characteristics:
+  criterion_name: Statistical Characteristics
+  criterion_description: "\"Assesses whether the publication provides comprehensive\
+    \ statistical information \nabout the dataset\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Missing or inadequate statistical analysis
+  - value: 1
+    description: "\"Either:\n  - Comprehensive statistical analysis of dataset characteristics\n\
+      \  OR\n  - Clear explanation of why certain statistics are not applicable\"\n"
+  positive_indicators:
+  - Class/label distributions if applicable
+  - Feature distributions
+  - Summary statistics for numerical features
+  - Missing value statistics
+  - Outlier analysis
+  - Correlation analysis if relevant
+  - Time series characteristics if applicable
+  - Demographic distributions if applicable
+  negative_indicators:
+  - Missing distribution information
+  - Unclear statistical summaries
+  - Undocumented missing values
+  - Missing relevant analyses
+  - No explanation for omitted statistics
+  uses_llm: true
+dataset_quality_metrics:
+  criterion_name: Dataset Quality Metrics and Indicators
+  criterion_description: '"Evaluates whether the publication provides clear metrics
+    and indicators of data quality"
+
+    '
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Missing or inadequate quality metrics
+  - value: 1
+    description: Comprehensive quality metrics with clear assessment methodology
+  positive_indicators:
+  - Data completeness metrics
+  - Consistency checks
+  - Noise level assessment
+  - Label quality metrics if applicable
+  - Inter-annotator agreement if applicable
+  - Data integrity checks
+  - Source reliability assessment
+  - Quality control results
+  negative_indicators:
+  - Missing quality assessments
+  - Unclear quality metrics
+  - Undocumented quality issues
+  - Missing validation results
+  - Poor quality control documentation
+  uses_llm: true
+sota_comparisons:
+  criterion_name: State-of-the-Art Comparisons
+  criterion_description: "\"Evaluates whether the study includes relevant state-of-the-art\
+    \ methods from \nrecent literature for comparison. Must contain at least 4 or\
+    \ 5 other top methods \nfor comparison\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Missing key SOTA methods or using outdated comparisons
+  - value: 1
+    description: '"Includes relevant current SOTA methods - at least 4 or 5 top methods"
+
+      '
+  positive_indicators:
+  - Recent SOTA methods included
+  - Current top performers covered
+  - Up-to-date implementations used
+  - Latest variants considered
+  - Key competing approaches included
+  negative_indicators:
+  - Missing important SOTA methods
+  - Using outdated versions
+  - Ignoring recent advances
+  - Incomplete coverage of field
+  - Only older methods compared
+  uses_llm: true
+benchmarking_method_selection:
+  criterion_name: Benchmarking Method Selection Justification
+  criterion_description: "\"Evaluates whether the choice of methods, models, or tools\
+    \ for comparison is \nwell-justified and reasonable for the study's objectives.\"\
+    \n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: No clear justification for method selection
+  - value: 1
+    description: Clear rationale for methods chosen and excluded
+  positive_indicators:
+  - Selection criteria explained
+  - Exclusions justified
+  - Relevance demonstrated
+  - Alternative considerations discussed
+  - Method scope appropriate
+  negative_indicators:
+  - Arbitrary selection
+  - Unexplained omissions
+  - Biased choices
+  - Missing key alternatives
+  - Poor scope definition
+  uses_llm: true
+benchmarking_comparison_fairness:
+  criterion_name: Fair Comparison Setup
+  criterion_description: '"Assesses whether all methods are compared under fair and
+    consistent conditions."
+
+    '
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Unfair or inconsistent comparison conditions
+  - value: 1
+    description: Demonstrated fairness in comparisons
+  positive_indicators:
+  - Consistent data preprocessing
+  - Equal computational resources
+  - Proper hyperparameter tuning
+  - Same evaluation conditions
+  - Controlled testing environment
+  negative_indicators:
+  - Inconsistent conditions
+  - Unfair resource allocation
+  - Poor parameter tuning
+  - Biased evaluation setup
+  - Uncontrolled variables
+  uses_llm: true
+benchmarking_evaluation_rigor:
+  criterion_name: Benchmarking Evaluation Rigor
+  criterion_description: "\"Evaluates whether the comparison uses appropriate metrics\
+    \ and statistical \nanalysis.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Poor or insufficient evaluation methodology
+  - value: 1
+    description: Appropriate evaluation methodology with proper metrics
+  positive_indicators:
+  - Multiple relevant metrics
+  - Statistical significance tests
+  - Error margins reported
+  - Variance analysis included
+  - Proper statistical methodology
+  negative_indicators:
+  - Single/inappropriate metrics
+  - Missing statistical tests
+  - No error analysis
+  - Poor statistical methodology
+  - Incomplete results reporting
+  uses_llm: true
+topic_coverage:
+  criterion_name: Purpose-Aligned Topic Coverage
+  criterion_description: "\"Evaluates whether the publication covers all topics and\
+    \ concepts necessary to fulfill \nits stated purpose, goals, or learning objectives.\
+    \ Coverage should be complete relative \nto what was promised, rather than exhaustive\
+    \ of the general topic area.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: "\"Missing topics necessary to fulfill stated purpose, or includes\
+      \ substantial \nunrelated content\"\n"
+  - value: 1
+    description: "\"Completely covers all topics needed to fulfill stated purpose,\
+      \ with appropriate \nfocus and depth\"\n"
+  positive_indicators:
+  - Each stated objective or goal has corresponding content coverage
+  - Topics directly support the publication's stated purpose
+  - Content scope matches what was promised
+  - Prerequisites stated in objectives are properly covered
+  - 'For tutorials/guides: All steps needed to achieve stated learning outcomes'
+  - 'For technical reports: All components needed to understand and replicate work'
+  - 'For case studies: All aspects needed to understand context, solution, and outcomes'
+  - 'For research papers: All elements needed to validate and understand findings'
+  - Logical progression of topics that builds toward stated goals
+  - Appropriate depth for each topic based on its importance to stated objectives
+  - Clear connections between covered topics and stated purposes
+  - Balanced coverage aligned with topic's importance to objectives
+  negative_indicators:
+  - Stated objectives not fully addressed in content
+  - Missing topics necessary to achieve stated goals
+  - Gaps in prerequisite knowledge promised to be covered
+  - Important aspects mentioned in purpose statement left unexplained
+  - Excessive coverage of topics not related to stated purpose
+  - Disproportionate focus on secondary aspects
+  - Missing crucial steps or components needed for stated outcomes
+  - Coverage doesn't support claimed deliverables
+  - Topics presented without clear connection to objectives
+  - Critical dependencies for stated goals left unexplained
+  - Insufficient depth in areas central to stated purpose
+  - Imbalanced coverage relative to topics' importance to goals
+  uses_llm: true
+stated_prerequisites:
+  criterion_name: Clear Prerequisites and Requirements
+  criterion_description: "\"Evaluates whether the publication clearly states what\
+    \ readers need to have (tools, \nenvironment, software) or need to know (technical\
+    \ knowledge, concepts) before they \ncan effectively use or understand the content.\
+    \ Most relevant for educational content \nlike tutorials, guides, and technical\
+    \ implementations, but can also apply to \ntechnical deep dives and implementation\
+    \ reports.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: '"Missing or unclear prerequisites that readers need for successful
+      understanding
+
+      or implementation"
+
+      '
+  - value: 1
+    description: Clear, complete statement of all necessary prerequisites and requirements
+  positive_indicators:
+  - Clearly states required background knowledge or expertise level
+  - Lists specific concepts readers should be familiar with
+  - Indicates expected proficiency level in relevant technologies
+  - Mentions if specific math/statistics knowledge is needed
+  - Lists required software versions and dependencies
+  - Specifies hardware requirements if applicable
+  - Details environment setup needs
+  - Mentions necessary access rights or accounts
+  - Prerequisites section appears early in the content
+  - Distinguishes between required and optional prerequisites
+  - Groups requirements logically (knowledge vs. tools)
+  - Links to resources for acquiring prerequisites when applicable
+  negative_indicators:
+  - No mention of required background knowledge
+  - Missing critical software requirements
+  - Unclear minimum expertise level needed
+  - Hidden requirements that only become apparent later
+  - Vague statements about required knowledge
+  - Ambiguous version requirements
+  - Unclear distinction between must-have and nice-to-have
+  - Prerequisites scattered throughout content instead of clearly stated upfront
+  - Assumes knowledge not listed in prerequisites
+  - Uses tools or technologies not mentioned in requirements
+  - References concepts without checking if they're in prerequisites
+  - Inconsistency between stated prerequisites and actual content complexity
+  uses_llm: true
+appropriate_technical_depth:
+  criterion_name: Appropriate Technical Depth
+  criterion_description: "\"Assesses whether the technical content matches the expected\
+    \ depth for the intended \naudience and publication type. For technical audiences,\
+    \ evaluates if it provides \nsufficient depth. For general audiences, evaluates\
+    \ if it maintains accessibility \nwhile being technically sound.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: '"Technical depth misaligned with audience needs (either too shallow
+      or too complex)"
+
+      '
+  - value: 1
+    description: '"Technical depth appropriately matched to audience and publication
+      type"
+
+      '
+  positive_indicators:
+  - 'When targeting technical audiences:'
+  - Comprehensive technical explanations
+  - Mathematical foundations and formal notations where relevant
+  - Implementation details and architectural considerations
+  - Analysis of edge cases and limitations
+  - Performance characteristics and trade-offs
+  - 'When targeting intermediate audiences:'
+  - Clear explanations of core concepts
+  - Simplified mathematical notation with explanations
+  - Basic implementation guidance
+  - Common pitfalls and best practices
+  - Practical examples and use cases
+  - 'When targeting general audiences:'
+  - High-level explanations without jargon
+  - Visual explanations of complex concepts
+  - Practical implications and business value
+  - Real-world analogies and examples
+  - Clear connection to practical applications
+  negative_indicators:
+  - Technical depth doesn't match stated audience level
+  - Unexplained technical jargon for non-technical audiences
+  - Oversimplified explanations for technical audiences
+  - Missing critical details expected by the target audience
+  - Sudden jumps in complexity level
+  - Inconsistent technical depth throughout
+  - Using advanced concepts without proper introduction
+  - Assuming knowledge not stated in prerequisites
+  - Important technical details missing for technical audiences
+  - Too much technical detail for general audiences
+  - Mathematical notation without proper explanation for non-technical audiences
+  - Missing practical context for technical concepts
+  uses_llm: true
+code_usage:
+  criterion_name: Code Usage Appropriateness
+  criterion_description: "\"Assesses whether code examples, when present, are used\
+    \ judiciously and add value \nto the explanation. If the publication type or topic\
+    \ doesn't require code examples, \nthen absence of code is appropriate and should\
+    \ score positively.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Unnecessary code dumps or excessive implementation details where
+      code is used
+  - value: 1
+    description: 'Either: appropriate absence of code OR focused code examples that
+      directly support explanations'
+  positive_indicators:
+  - Appropriate absence of code in non-technical content
+  - Code examples directly illustrate specific concepts
+  - Minimal, focused snippets rather than complete implementations
+  - Clear purpose for each code example
+  - Balance between code and explanation
+  negative_indicators:
+  - Unnecessary code where concepts could be explained without it
+  - Excessive implementation details
+  - Code dumps without proper explanation
+  - Unnecessary boilerplate code
+  - Code overshadowing conceptual content
+  uses_llm: true
+code_clarity:
+  criterion_name: Code Clarity and Presentation
+  criterion_description: "\"When code examples are present, evaluates whether they\
+    \ are well-written, properly \nformatted and integrated with the surrounding content.\
+    \ If the publication contains \nno code examples, this criterion is considered\
+    \ satisfied by default.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Code is present but poorly presented or formatted
+  - value: 1
+    description: 'Either: no code present OR code is clear and well-formatted'
+  positive_indicators:
+  - No code present (automatically satisfies criterion)
+  - When code is present:
+    - Clear variable and function names
+    - Consistent formatting and style
+    - Code broken into digestible parts
+    - Appropriate abstraction level
+    - Good visual presentation
+  negative_indicators:
+  - When code is present:
+    - Unclear or confusing code structure
+    - Inconsistent formatting
+    - Poor organization
+    - Inappropriate abstraction level
+    - Poor visual presentation
+  uses_llm: true
+code_explanation:
+  criterion_name: Code Explanation Quality
+  criterion_description: "\"When code snippets are present, evaluates how well they\
+    \ are explained and \ncontextualized within the content. If the publication contains\
+    \ no code snippets, \nthis criterion is considered satisfied by default.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Code is present but poorly explained or contextualized
+  - value: 1
+    description: 'Either: no code present OR code is well explained and contextualized'
+  positive_indicators:
+  - No code present (automatically satisfies criterion)
+  - When code is present:
+    - Each significant code snippet is explained
+    - Key lines or sections are highlighted
+    - Implementation choices are justified
+    - Important details are discussed
+    - Connects code to concepts
+  negative_indicators:
+  - When code is present:
+    - Missing explanations for snippets
+    - Superficial explanations only
+    - Complex parts left unexplained
+    - No context for implementation choices
+    - Disconnect from main content
+  uses_llm: true
+real_world_applications:
+  criterion_name: Real-World Applications
+  criterion_description: "\"Assesses whether the publication clearly explains the\
+    \ practical significance, \nreal-world relevance, and potential applications of\
+    \ the topic. This shows readers \nwhy the content matters and how it can be applied\
+    \ in practice.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Missing or unclear practical relevance and applications
+  - value: 1
+    description: Clear explanation of practical importance with concrete applications
+  positive_indicators:
+  - Clear explanation of why the topic matters in practice
+  - Specific industry or domain applications identified
+  - Business or technical impact explained
+  - Implementation considerations discussed
+  - Different application contexts provided
+  - Real-world constraints and limitations addressed
+  negative_indicators:
+  - No connection to practical applications
+  - Purely theoretical discussion
+  - Missing real-world context
+  - Too abstract or academic
+  - No mention of practical value
+  - Ignores real-world constraints
+  uses_llm: true
+limitations_tradeoffs:
+  criterion_name: Limitations and Trade-offs
+  criterion_description: "Assesses whether the content discusses practical limitations,\
+    \ trade-offs, and \npotential pitfalls in real-world applications.\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Missing or inadequate coverage of limitations and trade-offs
+  - value: 1
+    description: Clear discussion of practical limitations and trade-offs
+  positive_indicators:
+  - Discussion of limitations and constraints
+  - Clear trade-off analysis
+  - Common pitfalls and how to avoid them
+  - When not to use certain approaches
+  - Alternative approaches for different scenarios
+  - Cost-benefit considerations
+  negative_indicators:
+  - No discussion of limitations
+  - Missing important trade-offs
+  - Overselling capabilities
+  - No mention of pitfalls
+  - Ignoring alternative approaches
+  - Missing cost-benefit analysis
+  uses_llm: true
+practical_examples:
+  criterion_name: Supporting Examples
+  criterion_description: "\"Evaluates whether educational content (tutorials, guides,\
+    \ blogs, technical deep dives) \nincludes concrete and contemporary examples to\
+    \ illustrate concepts and enhance understanding. \nExamples should help readers\
+    \ better grasp the material through practical demonstration.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: "\"Missing examples or examples that don't effectively illustrate\
+      \ concepts, \nor outdated exammples.\"\n"
+  - value: 1
+    description: Includes clear, relevant examples that enhance understanding
+  positive_indicators:
+  - Provides specific examples to illustrate key concepts
+  - Examples progress from simple to complex
+  - Examples demonstrate practical usage
+  - Examples cover different scenarios or use cases
+  - Examples include common pitfalls or edge cases
+  - Code examples where appropriate
+  - Step-by-step worked examples
+  - Examples match the audience's level
+  negative_indicators:
+  - Concepts presented without supporting examples
+  - Examples too complex for the target audience
+  - Examples don't clearly illustrate the concepts
+  - Missing examples for key points
+  - Examples without proper explanation
+  - Disconnected or irrelevant examples
+  - Only trivial examples provided
+  uses_llm: true
+industry_insights:
+  criterion_name: Industry Insights
+  criterion_description: 'Evaluates inclusion of industry trends, statistics, or patterns
+    observed in practice.
+
+    '
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Missing or minimal industry context
+  - value: 1
+    description: Includes relevant industry trends and data
+  positive_indicators:
+  - Current industry trends
+  - Usage statistics or adoption rates
+  - Market observations
+  - Industry benchmarks
+  - Technology adoption patterns
+  - Industry-specific challenges
+  negative_indicators:
+  - No industry context
+  - Outdated information
+  - Missing relevant trends
+  - No statistical backing
+  - Generic observations only
+  uses_llm: true
+success_failure_stories:
+  criterion_name: Success/Failure Stories
+  criterion_description: "Assesses whether specific success or failure stories are\
+    \ shared to illustrate \noutcomes and lessons learned.\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Missing or minimal real outcome stories
+  - value: 1
+    description: Includes specific success/failure stories with lessons learned
+  positive_indicators:
+  - Specific project outcomes
+  - Real implementation results
+  - Detailed failure analysis
+  - Success story breakdowns
+  - Lessons learned from failures
+  - Unexpected challenges faced
+  negative_indicators:
+  - No specific outcomes shared
+  - Missing failure analysis
+  - Generic success claims
+  - No lessons learned
+  - Hypothetical outcomes only
+  uses_llm: true
+content_accessibility:
+  criterion_name: Content Accessibility
+  criterion_description: "\"Evaluates how well technical concepts are explained for\
+    \ a broader audience \nwhile maintaining scientific accuracy.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: "\"Technical concepts and content is too complex or oversimplified;\
+      \ \nOr this publication does not have technical concepts\"\n"
+  - value: 1
+    description: Technical concepts explained clearly at appropriate level
+  positive_indicators:
+  - Complex concepts broken down without loss of accuracy
+  - Technical terms properly introduced and explained
+  - Uses appropriate analogies or examples
+  - Builds understanding progressively
+  - Maintains scientific precision while being understandable
+  negative_indicators:
+  - Unexplained technical jargon
+  - Oversimplified to point of inaccuracy
+  - Requires PhD-level knowledge to understand
+  - Missing foundational explanations
+  - Poor balance between accuracy and accessibility
+  uses_llm: true
+technical_progression:
+  criterion_name: Technical Progression
+  criterion_description: '"Assesses how well the content builds technical understanding
+    progressively,
+
+    introducing concepts in a logical sequence that supports comprehension."
+
+    '
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Poor progression of technical concepts
+  - value: 1
+    description: Logical progression that builds understanding effectively
+  positive_indicators:
+  - Concepts built up in logical sequence
+  - Prerequisites introduced before advanced topics
+  - Clear connection between concepts
+  - Appropriate pacing of technical content
+  - Background provided where needed
+  negative_indicators:
+  - Jumps to advanced concepts too quickly
+  - Missing important prerequisite concepts
+  - Unclear relationships between ideas
+  - Inconsistent technical depth
+  - Poor foundation building
+  uses_llm: true
+scientific_clarity:
+  criterion_name: Scientific Clarity
+  criterion_description: '"Evaluates whether scientific accuracy is maintained while
+    presenting content
+
+    in an accessible way."
+
+    '
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Sacrifices scientific accuracy or is unclear
+  - value: 1
+    description: Maintains scientific accuracy while being clear
+  positive_indicators:
+  - Key scientific points accurately conveyed
+  - Important technical nuances preserved
+  - Complex ideas simplified without distortion
+  - Precise where it matters
+  - Clear distinction between simplification and actual mechanism
+  negative_indicators:
+  - Scientific inaccuracies in simplification
+  - Important technical details lost
+  - Misleading analogies or examples
+  - Over-generalization of specific findings
+  - Imprecise explanation of key concepts
+  uses_llm: true
+source_credibility:
+  criterion_name: Source Credibility
+  criterion_description: "\"Evaluates whether the blog properly references and cites\
+    \ its sources, clearly \nidentifies the origin of data/code/tools used, and provides\
+    \ sufficient version/\nenvironment information for reproducibility. This helps\
+    \ readers validate claims, \ntrace information to original sources, and implement\
+    \ solutions reliably.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Missing or inadequate source citations, references, or version information
+  - value: 1
+    description: '"Clear, complete references and version information for all key
+      claims, data, and tools"
+
+      '
+  positive_indicators:
+  - Links to original research papers or documentation for technical claims
+  - Clear identification of data sources and versions
+  - Specific versions of key tools/libraries stated
+  - Reproducibility information (environment, setup) provided
+  - Citations for statistics and quantitative claims
+  negative_indicators:
+  - Unsubstantiated technical claims
+  - Unclear origin of data or code
+  - Missing version information for critical tools
+  - Vague or incomplete references
+  - No reproducibility guidance when needed
+  uses_llm: true
+reader_next_steps:
+  criterion_name: Reader Next Steps
+  criterion_description: "\"Evaluates whether the publication provides clear guidance\
+    \ on what readers can do \nafter consuming the content. This includes suggested\
+    \ learning paths, topics to \nexplore, further reading materials, skills to practice,\
+    \ or actions to take. The \nfocus is on helping readers understand their potential\
+    \ next steps.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Missing or unclear guidance on what readers can do next
+  - value: 1
+    description: Clear suggestions for reader's next steps after this content
+  positive_indicators:
+  - Suggests specific next topics to learn
+  - Recommends practice exercises or projects
+  - Points to advanced concepts to explore
+  - Lists helpful resources for further learning
+  - Provides concrete action items for readers
+  negative_indicators:
+  - No guidance for reader's next steps
+  - Ends without suggestions for further learning
+  - Missing recommendations for practice
+  - No clear path for readers to progress
+  - Leaves readers uncertain about how to proceed
+  uses_llm: true
+uncommon_insights:
+  criterion_name: Uncommon Insights
+  criterion_description: "\"Evaluates whether the publication provides valuable insights\
+    \ that are either unique \n(from personal experience/expertise) or uncommon (not\
+    \ easily found in standard \nsources). Looks for expert analysis, real implementation\
+    \ experiences, or carefully \ncurated information that is valuable but not widely\
+    \ available.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Contains only common knowledge or easily available information
+  - value: 1
+    description: Provides unique or hard-to-find insights from experience or expertise
+  positive_indicators:
+  - Personal experiences from real implementations
+  - Novel combinations or analysis of existing concepts
+  - Expert interpretations of common challenges
+  - Unique perspectives on industry trends
+  - Specific insights from hands-on experience
+  negative_indicators:
+  - Generic explanations available in documentation
+  - Basic tutorials without unique insights
+  - Commonly repeated information
+  - Surface-level aggregation of existing content
+  - Standard explanations without added value
+  uses_llm: true
+asset_accessibility:
+  criterion_name: Technical Asset Access Links
+  criterion_description:
+  - "\"Evaluates whether the publication provides links to access the technical asset\
+    \ \n(tool, dataset, model, etc.), such as repositories, registries, or download\
+    \ locations\"\n"
+  - "\"Publication should include specific references to where readers can obtain\
+    \ or \naccess the asset\"\n"
+  required_items:
+  - publication_description
+  - has_code_repository
+  - has_dataset_urls
+  scoring_logic:
+  - value: 0
+    description: '"No mention of where or how to access the technical asset in the
+      publication"
+
+      '
+  - value: 1
+    description: "\"Clear references to where and how to access the technical asset\
+      \ included in \nthe publication\"\n"
+  positive_indicators:
+  - Link to code repository (GitHub, GitLab, etc.) for software
+  - Reference to package registry (PyPI, npm, etc.) for libraries
+  - Dataset download links or access instructions
+  - Model hub links (HuggingFace, TensorFlow Hub, etc.)
+  - API endpoints or service access information
+  - Multiple access methods where applicable
+  - Version information included with references
+  - Data portal or catalog links for datasets
+  - Model card or model repository links
+  - Docker image location if containerized
+  negative_indicators:
+  - No access links or locations provided
+  - Vague mentions without specific URLs
+  - Missing version information
+  - No indication of how to access the asset
+  - Missing access credentials or request process for restricted assets
+  uses_llm: true
+installation_and_usage_guide:
+  criterion_name: Installation and Usage Instructions
+  criterion_description: "\"Evaluates whether the publication provides clear instructions\
+    \ for installing and using \nthe tool, either directly in the publication or through\
+    \ explicit references to external \ndocumentation. The key is that a reader should\
+    \ be able to quickly understand how to get \nstarted with the tool.\"\n"
+  required_items:
+  - publication_description
+  - has_code_repository
+  scoring_logic:
+  - value: 0
+    description: "\"No clear installation/usage instructions provided AND no explicit\
+      \ reference to \nexternal documentation containing these instructions. Or, external\
+      \ references are \nvague/broken/outdated.\"\n"
+  - value: 1
+    description: "\"Either contains clear installation/usage instructions directly\
+      \ in the publication \nOR provides specific, working references to external\
+      \ documentation (e.g., GitHub \nREADME, ReadTheDocs, PyPI page) that contains\
+      \ these instructions.\"\n"
+  positive_indicators:
+  - Direct inclusion of installation commands (e.g., pip install, docker pull)
+  - Step-by-step usage instructions with code examples
+  - Specific links to installation guides (e.g., 'Installation instructions available
+    at <specific_url>')
+  - Direct references to package managers (e.g., 'Available on PyPI at <package_name>')
+  - Version-specific installation instructions
+  - Basic usage examples in publication with links to more comprehensive guides
+  - Clear prerequisites and dependency information
+  - Quick start guide with minimal working example
+  - Links to official documentation with specific sections for installation/usage
+  negative_indicators:
+  - No installation instructions or references to where they can be found
+  - Vague references like 'check our GitHub'
+  - Missing crucial setup steps or prerequisites
+  - Installation/usage instructions without version information
+  - Incomplete instructions with no reference to complete documentation
+  uses_llm: true
+performance_characteristics:
+  criterion_name: Performance Characteristics and Requirements
+  criterion_description:
+  - Evaluates documentation of tool's performance characteristics
+  - Should cover resource requirements, scalability, and limitations
+  - Include benchmarks where applicable
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Missing or unclear performance information
+  - value: 1
+    description: Clear documentation of performance characteristics and requirements
+  positive_indicators:
+  - Resource requirements (CPU, memory, disk)
+  - Performance benchmarks
+  - Scalability information
+  - Known limitations and bottlenecks
+  - Hardware/software requirements
+  negative_indicators:
+  - No performance information
+  - Missing resource requirements
+  - No scalability guidance
+  - Unclear limitations
+  uses_llm: true
+maintenance_status:
+  criterion_name: Maintenance and Support Status
+  criterion_description:
+  - "\"Evaluates whether the publication clearly communicates the maintenance and\
+    \ support \nstatus of the technical asset (tool, dataset, model, etc.)\"\n"
+  - '"Should provide information about updates, versioning, and support channels"
+
+    '
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: '"No clear information about maintenance status or support channels"
+
+      '
+  - value: 1
+    description: '"Clear communication about maintenance status, versioning, and support
+      options"
+
+      '
+  positive_indicators:
+  - Current version or release information
+  - Update/maintenance frequency stated
+  - Support channels or contact information provided
+  - Issue reporting process described
+  - Information about future updates/maintenance plans
+  - 'For datasets: data freshness, update schedule'
+  - 'For models: retraining frequency, version compatibility'
+  negative_indicators:
+  - No version or update information
+  - Unclear maintenance status
+  - Missing support information
+  - No indication of asset's current state
+  uses_llm: true
+open_source_status:
+  criterion_name: Access and Availability Status
+  criterion_description:
+  - "\"Evaluates whether the publication clearly states how the technical asset can\
+    \ be \naccessed and used by others\"\n"
+  - '"Should explicitly state if it''s open-source/public or has restricted access"
+
+    '
+  required_items:
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: '"No clear information about access status and availability"
+
+      '
+  - value: 1
+    description: '"Explicitly states access status and provides relevant access information"
+
+      '
+  positive_indicators:
+  - Clear statement about public/private status
+  - 'For code: open-source status and repository access'
+  - 'For datasets: data access methods and restrictions'
+  - 'For models: model availability and distribution'
+  - Contribution/collaboration guidelines if applicable
+  - Access request process for restricted assets
+  negative_indicators:
+  - Unclear availability status
+  - Missing access information
+  - Ambiguous terms about usage rights
+  - No information about how to obtain the asset
+  uses_llm: true
+asset_license_transparency:
+  criterion_name: License and Usage Rights of the Technical Asset
+  criterion_description:
+  - "\"Evaluates whether the publication clearly communicates the licensing terms\
+    \ and \nusage rights of the technical asset itself (not the publication). This\
+    \ includes\nsoftware licenses for tools, data licenses for datasets, model licenses\
+    \ for AI \nmodels, etc.\"\n"
+  - "\"Should help readers understand what they are permitted to do with the asset\
+    \ \nonce they obtain it\"\n"
+  - "\"Note: This refers specifically to the license of the asset being described,\
+    \ not \nthe license of the publication describing it\"\n"
+  required_items:
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: '"No clear information about the technical asset''s license or usage
+      rights provided"
+
+      '
+  - value: 1
+    description: '"Explicitly states the technical asset''s licensing terms and usage
+      rights"
+
+      '
+  positive_indicators:
+  - Clear statement of the asset's license type
+  - Asset's usage rights and restrictions clearly explained
+  - 'For code: software license (MIT, Apache, GPL, etc.) specified'
+  - 'For datasets: data usage rights, sharing permissions, attribution requirements'
+  - 'For models: model license, deployment restrictions, commercial usage terms'
+  - Clear distinction between commercial vs non-commercial usage
+  - Asset's redistribution rights specified
+  - Asset's modification rights specified
+  - Reference to full license text for the asset
+  negative_indicators:
+  - No mention of the asset's license
+  - Unclear terms about what can be done with the asset
+  - Vague statements about asset usage permissions
+  - Missing important restrictions or requirements
+  - Only publication license mentioned, not asset license
+  - Ambiguous whether license refers to publication or asset
+  uses_llm: true
+contact_information:
+  criterion_name: Contact Information of Asset Creators
+  criterion_description:
+  - "\"Evaluates whether the publication provides information about how to contact\
+    \ \nthe creators/maintainers or the technical asset or get support, either directly\
+    \ \nor through clear references to external channels\"\n"
+  - '"Should help readers know where to go for questions, issues, or support"
+
+    '
+  required_items:
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: "\"No contact or support information provided and no clear references\
+      \ to where \nthis information can be found\"\n"
+  - value: 1
+    description: "\"Clear contact/support information provided in publication or specific\
+      \ \nreferences to where this information can be found\"\n"
+  positive_indicators:
+  - Direct maintainer contact information
+  - Link to GitHub/GitLab issues
+  - Reference to discussion forums or chat channels
+  - Support email address
+  - Bug reporting guidelines
+  - Community support channels
+  - Office hours or support availability
+  - FAQ or troubleshooting resources
+  negative_indicators:
+  - No contact information provided
+  - No support channels mentioned
+  - No indication of where to get help
+  - Missing issue reporting process
+  uses_llm: true
+visual_demonstration:
+  criterion_name: Visual Tool Demonstration
+  criterion_description:
+  - "\"Evaluates whether the publication includes visual aids to demonstrate the asset's\
+    \ \nusage and capabilities through demo videos, screenshots, diagrams, or step-by-step\
+    \ \nvisual guides\"\n"
+  - "\"Visual demonstrations help readers better understand the tool's interface,\
+    \ \nworkflow, and expected outputs\"\n"
+  required_items:
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: '"No visual demonstrations included or referenced in the publication"
+
+      '
+  - value: 1
+    description: "\"Publication includes or references visual demonstrations through\
+      \ videos, \nscreenshots, diagrams, or step-by-step visual guides\"\n"
+  positive_indicators:
+  - Demo video included or linked
+  - Screenshots of tool interface or outputs
+  - Step-by-step visual guides
+  - Diagrams showing tool workflow
+  - Visual examples of tool usage
+  - Before/after visuals showing tool effects
+  - Animated GIFs demonstrating functionality
+  negative_indicators:
+  - No visual aids included
+  - Text-only instructions without supporting visuals
+  - Missing visuals for key features or steps
+  - No demonstration of tool interface or outputs
+  uses_llm: true
+blog_style:
+  criterion_name: Blog Writing Style
+  criterion_description: "\"Evaluates how effectively the blog post maintains reader\
+    \ interest through its writing \nstyle and structure. For short-form technical\
+    \ content, assesses the balance between \nbeing engaging and informative, with\
+    \ appropriate use of blog-specific elements like \nhooks, sections, and conclusions.\"\
+    \n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Poor blog writing style, lacking effective engagement elements
+  - value: 1
+    description: Effective blog writing style with good reader engagement
+  positive_indicators:
+  - Strong opening hook or introduction
+  - Scannable structure (clear headings, short paragraphs)
+  - Conversational yet professional tone
+  - Clear takeaways or conclusion
+  - Effective use of blog elements (callouts, tips, summaries)
+  negative_indicators:
+  - Academic or overly formal writing style
+  - Long, dense paragraphs
+  - Missing clear sections or structure
+  - Weak opening or conclusion
+  - Inconsistent or inappropriate tone
+  uses_llm: true
+tutorial_style:
+  criterion_name: Tutorial Writing Style
+  criterion_description: "\"Evaluates how effectively the tutorial guides readers\
+    \ through learning new concepts \nor skills. Assesses the structure, progression,\
+    \ and instructional elements that \nmake tutorials effective learning resources.\"\
+    \n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Poor tutorial structure, lacking effective instructional elements
+  - value: 1
+    description: Effective tutorial structure with clear learning progression
+  positive_indicators:
+  - Clear learning objectives at the start
+  - Step-by-step progression of concepts
+  - Instructions broken into manageable chunks
+  - Presence of code snippets
+  - Consistent formatting of steps/commands
+  - Periodic recap or checkpoint sections
+  negative_indicators:
+  - Missing clear learning objectives
+  - Jumps between concepts without progression
+  - Overly long or complex steps
+  - Inconsistent instruction format
+  - No checkpoints or progress markers
+  uses_llm: true
+case_study_style:
+  criterion_name: Case Study Writing Style
+  criterion_description: "\"Evaluates how effectively the case study presents a real-world\
+    \ implementation \nor project. Assesses whether it follows a clear narrative structure\
+    \ that describes \nthe context, challenge, solution, and outcomes in a systematic\
+    \ way.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Poor case study structure, missing key narrative elements
+  - value: 1
+    description: Effective case study structure with clear problem-solution narrative
+  positive_indicators:
+  - Clear context/background setup
+  - Specific problem or challenge defined
+  - Solution approach explained
+  - Implementation details provided
+  - Concrete outcomes or results
+  negative_indicators:
+  - Missing context or background
+  - Vague problem statement
+  - Unclear solution approach
+  - Lack of specific details
+  - No clear results or learnings
+  uses_llm: true
+section_structure:
+  criterion_name: Section Structure
+  criterion_description: "\"Evaluates whether the publication uses clear section headings\
+    \ (markdown # and ##) \nto break content into logical, digestible segments. Content\
+    \ should be well-organized \nwith appropriate hierarchy rather than presented\
+    \ as continuous text.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Poor section structure, content presented as continuous text
+  - value: 1
+    description: Clear section structure with appropriate heading hierarchy
+  positive_indicators:
+  - Uses markdown headings to structure content
+  - Clear hierarchy (# for main sections,
+  - Reasonable section lengths
+  - Logical grouping of related content
+  - Each major topic has its own section
+  negative_indicators:
+  - Content written as continuous text
+  - Missing section headings
+  - Inconsistent heading hierarchy
+  - Overly long sections
+  - Poor content grouping
+  uses_llm: true
+visual_header:
+  criterion_name: Visual Header
+  criterion_description: "\"Evaluates whether the publication includes a leading visual\
+    \ element (image or video) \nnear the top of the content. This visual should provide\
+    \ an overview, preview, or \nconceptual illustration of the content. This criterion\
+    \ checks for the presence and \nplacement of a leading visual, not its quality.\"\
+    \n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Missing visual header at the start of content
+  - value: 1
+    description: Contains appropriate visual header at the start of content
+  positive_indicators:
+  - Image or video appears at start of content
+  - Visual element embedded before or immediately after title/introduction
+  - Image uses common formats (png, jpg, jpeg, gif, svg, etc.)
+  - Video uses standard formats (mp4, webm, etc.)
+  - Visual provides meaningful overview/preview
+  - Visual is relevant to content
+  negative_indicators:
+  - No visual element at start of content
+  - First visual appears late in the content
+  - Visual element is unrelated to content
+  - Poor quality or unclear visual
+  uses_llm: true
+is_research_paper:
+  criterion_name: Research Paper Classification
+  criterion_description:
+  - "\"Evaluates whether a publication presents original research addressing a new\
+    \ \nproblem, methodology, or theoretical advancement in AI/ML.\"\n"
+  - "\"Must include literature review to establish current state of the field and\
+    \ \nidentify research gaps.\"\n"
+  - "\"Must present innovative ideas, novel approaches, or original insights that\
+    \ \nadvance the field beyond existing work.\"\n"
+  - "\"The key differentiator is the presence of both literature review and original\
+    \ \nresearch contribution.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  - publication_tags
+  scoring_logic:
+  - value: 0
+    description: '"Publication lacks literature review or does not present original
+      research contribution"
+
+      '
+  - value: 1
+    description: '"Publication includes literature review and presents clear research
+      novelty"
+
+      '
+  positive_indicators:
+  - Reviews existing literature
+  - Cites and analyzes related work
+  - Identifies gaps in current research
+  - Establishes research context
+  - Critiques existing approaches
+  - Proposes novel methodology
+  - Presents new theoretical insights
+  - Develops original algorithms
+  - Creates new problem formulations
+  - Shows innovation over existing methods
+  - Demonstrates original findings
+  - Evaluates against existing work
+  negative_indicators:
+  - Missing literature review
+  - No citations to related work
+  - Lacks research context
+  - Applies existing methods without modification
+  - Implements known approaches
+  - Tutorial-style content
+  - Best practices documentation
+  - Experience reports
+  - Implementation guides
+  - Tool usage demonstrations
+  - Product documentation
+  uses_llm: true
+is_benchmark_study:
+  criterion_name: Benchmark Study Classification
+  criterion_description:
+  - "\"Evaluates whether a publication qualifies as a benchmark study in the AI/ML\
+    \ domain, \nfocusing on systematic comparison and evaluation of models, methods,\
+    \ or systems.\"\n"
+  - "\"Benchmark studies must include comprehensive evaluation of multiple approaches,\
+    \ \nmodels, or implementations against standardized metrics or tasks.\"\n"
+  - "\"The publication should establish clear evaluation criteria, testing methodology,\
+    \ \nand comparative analysis framework.\"\n"
+  - "\"Must demonstrate thorough testing procedures, fair comparison conditions, and\
+    \ \nreproducible evaluation protocols.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  - publication_tags
+  scoring_logic:
+  - value: 0
+    description: "\"Publication lacks essential benchmark study elements or is clearly\
+      \ another format \n(like tutorial, general research paper, etc.)\"\n"
+  - value: 1
+    description: "\"Publication contains fundamental benchmark study elements and\
+      \ demonstrates \nsystematic comparative evaluation\"\n"
+  positive_indicators:
+  - Compares multiple models, methods, or systems
+  - Defines clear evaluation metrics and criteria
+  - Establishes standardized testing conditions
+  - Details experimental setup and testing environment
+  - Provides comprehensive performance metrics
+  - Includes statistical analysis of results
+  - Discusses fairness and bias considerations
+  - Contains reproducibility information
+  - Presents results in comparative tables/charts
+  - Analyzes trade-offs between different approaches
+  - Documents hardware/software specifications
+  - Includes detailed methodology for recreating tests
+  negative_indicators:
+  - Focuses on single model/method evaluation
+  - Lacks standardized comparison metrics
+  - Missing testing environment details
+  - Incomplete performance analysis
+  - No comparative analysis framework
+  - Subjective or qualitative comparisons only
+  - Tutorial-style content
+  - Opinion-based evaluations
+  - Marketing or promotional comparisons
+  - Missing reproducibility information
+  - Inconsistent testing conditions across comparisons
+  uses_llm: true
+is_research_summary:
+  criterion_name: Research Summary Classification
+  criterion_description:
+  - "\"Evaluates whether a publication explains and synthesizes recent research \n\
+    developments or novel findings in AI/ML.\"\n"
+  - "\"Must focus on making new research advances accessible, not just explaining\
+    \ \nestablished concepts or standard techniques.\"\n"
+  - "\"The publication should present cutting-edge research findings or recent \n\
+    developments to a broader audience.\"\n"
+  - "\"The key differentiator is the focus on explaining new research contributions\
+    \ \nrather than established knowledge.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  - publication_tags
+  scoring_logic:
+  - value: 0
+    description: '"Publication does not explain recent research developments or novel
+      findings"
+
+      '
+  - value: 1
+    description: '"Publication explains new research advances or recent developments"
+
+      '
+  positive_indicators:
+  - Explains recent research papers
+  - Discusses new methodologies
+  - Covers recent advances
+  - Synthesizes new findings
+  - References current research
+  - Explains novel contributions
+  - Makes new research accessible
+  - Discusses cutting-edge developments
+  - Connects recent research trends
+  - Interprets new theoretical advances
+  - Explains emerging techniques
+  negative_indicators:
+  - Explains only established concepts
+  - Covers standard techniques
+  - Summarizes basic knowledge
+  - Tutorial for common methods
+  - Documents existing tools
+  - Implementation guidance
+  - Standard practices explanation
+  - Tool usage documentation
+  - Basic concept education
+  - Established methodology review
+  uses_llm: true
+is_technical_deepdive:
+  criterion_name: Technical Deep Dive Classification
+  criterion_description:
+  - "\"Evaluates whether a publication provides in-depth technical education about\
+    \ \nan AI/ML topic, rather than solving a specific problem or providing basic\
+    \ guidance.\"\n"
+  - "\"Must explain advanced technical concepts with pedagogical purpose, focusing\
+    \ on \ndeep understanding of the topic rather than particular implementations.\"\
+    \n"
+  - "\"The key differentiators are: depth of technical explanation, focus on teaching\
+    \ \na topic rather than solving specific problems, and emphasis on understanding\
+    \ \nover implementation.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  - publication_tags
+  scoring_logic:
+  - value: 0
+    description: '"Publication lacks technical depth or focuses on specific problems/implementations"
+
+      '
+  - value: 1
+    description: '"Publication provides deep technical education about a topic"
+
+      '
+  positive_indicators:
+  - Explains complex technical mechanisms
+  - Teaches general technical concepts
+  - Covers advanced technical content
+  - Builds conceptual understanding
+  - Uses examples to illustrate concepts
+  - Connects theory and practice
+  - Focuses on 'how it works'
+  - Comprehensive topic coverage
+  - Educational approach to technical material
+  negative_indicators:
+  - Focuses on specific use case
+  - Primarily implementation steps
+  - Basic tutorial-style guidance
+  - Product features focus
+  - Industry case study
+  - Personal experiences only
+  - Simple how-to guide
+  - API documentation style
+  - Problem-solution oriented
+  - Surface-level explanation
+  uses_llm: true
+is_technical_guide:
+  criterion_name: Technical Guide Classification
+  criterion_description:
+  - "\"Evaluates whether a publication provides educational guidance about an AI/ML\
+    \ \ntopic, rather than solving a specific problem or documenting a particular\
+    \ solution.\"\n"
+  - "\"Must explain technical concepts with educational purpose, focusing on teaching\
+    \ \nthe topic rather than specific implementations.\"\n"
+  - "\"The key differentiators are: educational approach to a technical topic rather\
+    \ \nthan specific solutions, and accessible explanation rather than deep technical\
+    \ analysis.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  - publication_tags
+  scoring_logic:
+  - value: 0
+    description: '"Publication focuses on specific problems/implementations or lacks
+      educational purpose"
+
+      '
+  - value: 1
+    description: '"Publication teaches a technical topic with accessible explanations"
+
+      '
+  positive_indicators:
+  - Explains technical concepts
+  - Teaches general approaches
+  - Makes technical topics accessible
+  - Uses examples to illustrate concepts
+  - Takes educational approach
+  - Provides conceptual understanding
+  - Focuses on teaching the topic
+  - Explains general principles
+  negative_indicators:
+  - Focuses on specific use case
+  - Primarily implementation steps
+  - Pure API documentation
+  - Product features focus
+  - Industry case study
+  - Personal experiences only
+  - Problem-solution oriented
+  - Research methodology focus
+  - Benchmarking results
+  - News or trends reporting
+  uses_llm: true
+is_tutorial:
+  criterion_name: Tutorial Classification
+  criterion_description:
+  - "\"Evaluates whether a publication provides step-by-step guidance to implement\
+    \ \nan AI/ML solution, whether general or specific.\"\n"
+  - "\"Must focus on teaching the implementation process through clear steps, code\
+    \ \nexamples, and practical guidance.\"\n"
+  - "\"The key differentiator is the focus on teaching how to build something through\
+    \ \ndetailed, reproducible steps.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  - publication_tags
+  scoring_logic:
+  - value: 0
+    description: '"Publication lacks step-by-step implementation guidance"
+
+      '
+  - value: 1
+    description: '"Publication teaches how to build something through clear implementation
+      steps"
+
+      '
+  positive_indicators:
+  - Provides step-by-step instructions
+  - Shows concrete implementation steps
+  - Includes working code examples
+  - Demonstrates complete process
+  - Explains how to build/implement
+  - Contains setup instructions
+  - Shows expected outcomes
+  - Provides practical guidance
+  - Focuses on 'how to build/do'
+  negative_indicators:
+  - Only explains concepts
+  - Pure theoretical discussion
+  - Just shows final solution
+  - Only documents features
+  - Research findings only
+  - News or trend reporting
+  - Pure benchmarking results
+  - Missing implementation steps
+  - No practical guidance
+  uses_llm: true
+is_blog:
+  criterion_name: Blog Post Classification
+  criterion_description:
+  - "\"Evaluates whether a publication takes the form of a blog post, characterized\
+    \ by \na more personal, informal, or narrative approach to AI/ML topics.\"\n"
+  - "\"Blog posts typically combine technical content with personal insights, experiences,\
+    \ \nopinions, or storytelling elements.\"\n"
+  - "\"The publication may cover any AI/ML topic but presents it in an engaging, \n\
+    accessible manner typical of blog writing.\"\n"
+  - "\"The key differentiator is the conversational, personal, or narrative style\
+    \ \nof presenting information.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  - publication_tags
+  scoring_logic:
+  - value: 0
+    description: "\"Publication takes a formal academic or purely technical approach\
+      \ without \nblog-style elements\"\n"
+  - value: 1
+    description: '"Publication uses blog-style presentation with personal voice or
+      narrative elements"
+
+      '
+  positive_indicators:
+  - Uses personal voice or perspective
+  - Incorporates author's experiences or opinions
+  - Takes a narrative or storytelling approach
+  - Engages readers conversationally
+  - Combines technical content with accessibility
+  - Includes personal insights or reflections
+  - Uses informal or conversational language
+  - Shares practical experiences or lessons learned
+  - Discusses trends or developments in accessible way
+  - Reflects on industry practices or developments
+  negative_indicators:
+  - Purely formal academic writing
+  - Strict technical documentation style
+  - Formal research paper structure
+  - Pure step-by-step technical instructions
+  - Purely objective technical analysis
+  - Standard technical documentation format
+  - Formal product documentation style
+  uses_llm: true
+is_dataset_contribution:
+  criterion_name: New Dataset Contribution Classification
+  criterion_description:
+  - "\"Evaluates whether a publication presents a new dataset that the authors have\
+    \ \ncreated, collected, or curated for AI/ML applications.\"\n"
+  - "\"Dataset contributions must introduce an original dataset that didn't previously\
+    \ \nexist, including its creation process and characteristics.\"\n"
+  - "\"The publication should document how the new dataset was created, collected,\
+    \ \nor curated by the authors.\"\n"
+  - "\"The key differentiator is the introduction of a new, original dataset as the\
+    \ \nprimary contribution.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  - publication_tags
+  scoring_logic:
+  - value: 0
+    description: '"Publication does not present a new dataset created by the authors"
+
+      '
+  - value: 1
+    description: '"Publication presents an original dataset created or curated by
+      the authors"
+
+      '
+  positive_indicators:
+  - Presents a new, original dataset
+  - Describes own data collection methodology
+  - Details original data curation process
+  - Documents new dataset creation steps
+  - Explains authors' data gathering approach
+  - Presents novel data compilation
+  - Describes original annotation process
+  - Details custom data preprocessing
+  - Explains unique dataset construction
+  negative_indicators:
+  - Only uses existing public datasets
+  - Analyzes others' datasets
+  - Documents third-party data
+  - Purely theoretical discussion of data
+  - Focus on models or methods
+  - Using existing benchmarks
+  - Aggregating publicly available data only
+  uses_llm: true
+is_tool_app_software_package:
+  criterion_name: Tool/App/Software Package Classification
+  criterion_description:
+  - "\"Evaluates whether a publication presents a new software tool, application,\
+    \ \nor package that the authors have developed for AI/ML purposes.\"\n"
+  - "\"Must introduce an original software contribution created by the authors, such\
+    \ as \na library, framework, application, or development tool.\"\n"
+  - "\"The publication should present the tool's purpose, capabilities, and value\
+    \ \nto potential users.\"\n"
+  - "\"The key differentiator is the introduction of new software as the \nprimary\
+    \ contribution.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  - publication_tags
+  scoring_logic:
+  - value: 0
+    description: "\"Publication does not present a new software tool, application,\
+      \ or package \ncreated by the authors\"\n"
+  - value: 1
+    description: '"Publication presents an original software contribution created
+      by the authors"
+
+      '
+  positive_indicators:
+  - Presents a new software tool or library
+  - Introduces a new application
+  - Describes new framework capabilities
+  - Explains tool's purpose and features
+  - Shows tool's interface or API
+  - Provides installation/setup information
+  - Details software architecture
+  - Presents usage examples
+  - Describes implementation features
+  - States software requirements
+  - Includes package documentation
+  negative_indicators:
+  - Only uses existing tools
+  - Pure tutorial for existing software
+  - Analysis using existing packages
+  - Theoretical discussion only
+  - Using others' software
+  - Research findings without software
+  - Pure benchmark or comparison study
+  uses_llm: true
+is_academic_project_showcase:
+  criterion_name: Academic Project Showcase Classification
+  criterion_description:
+  - "\"Evaluates whether a publication demonstrates implementation of standard AI/ML\
+    \ \nconcepts and techniques in a learning-oriented manner.\"\n"
+  - "\"Must showcase application of common AI/ML approaches, focusing on understanding\
+    \ \nand implementation rather than novel contributions.\"\n"
+  - "\"The publication should demonstrate working with standard datasets or typical\
+    \ \nML tasks while emphasizing learning and implementation details.\"\n"
+  - "\"The key differentiator is the focus on implementing and understanding established\
+    \ \nconcepts, typically demonstrated through smaller-scope projects that could\
+    \ be \ncompleted within weeks rather than months.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  - publication_tags
+  scoring_logic:
+  - value: 0
+    description: "\"Publication does not demonstrate learning-focused implementation\
+      \ of standard \nAI/ML concepts, or shows extensive scope beyond typical learning\
+      \ projects\"\n"
+  - value: 1
+    description: "\"Publication demonstrates implementation and understanding of common\
+      \ AI/ML \nconcepts through a project of appropriate learning scope\"\n"
+  positive_indicators:
+  - Implements standard ML models or techniques
+  - Uses common public datasets
+  - Applies well-established ML approaches
+  - Shows manageable project scope
+  - Focused on single concept or technique
+  - Limited feature set
+  - Standard evaluation setup
+  - Basic preprocessing steps
+  - "\"Implements typical ML tasks (classification, regression, image classification,\
+    \ \nsentiment analysis, etc.)\"\n"
+  - Single use case implementation
+  negative_indicators:
+  - Presents novel research findings
+  - Develops new methodologies
+  - Introduces original datasets
+  - Solves complex business problems
+  - Deploys production systems
+  - Presents complex system architectures
+  - Focuses on theoretical advances
+  - Multiple integrated components
+  - Extensive data pipeline
+  - Complex system requirements
+  - Long-term development effort
+  - Multiple iterations or phases
+  uses_llm: true
+is_applied_solution_showcase:
+  criterion_name: Applied Solution Showcase Classification
+  criterion_description:
+  - "\"Evaluates whether a publication presents a technical implementation of an AI/ML\
+    \ \nsolution addressing specific real-world requirements in an industry context.\"\
+    \n"
+  - "\"Must detail custom technical architecture and implementation decisions made\
+    \ to \nsolve domain-specific challenges.\"\n"
+  - "\"The publication should demonstrate how technical choices address unique \n\
+    organizational or domain requirements.\"\n"
+  - "\"The key differentiator is the focus on custom technical implementation details\
+    \ \nfor specific real-world use cases.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  - publication_tags
+  scoring_logic:
+  - value: 0
+    description: "\"Publication does not present a custom technical implementation\
+      \ for specific \nreal-world requirements\"\n"
+  - value: 1
+    description: "\"Publication details custom technical implementation addressing\
+      \ specific \ndomain/organizational needs\"\n"
+  positive_indicators:
+  - Custom technical architecture for specific use case
+  - Domain-specific implementation details
+  - Specific technical requirements addressed
+  - Custom data pipeline adaptations
+  - Environment-specific optimizations
+  - Integration with existing systems
+  - Technical constraints handled
+  - Custom model architectures for domain
+  - Specific performance requirements met
+  - Production considerations addressed
+  negative_indicators:
+  - Standard model implementations
+  - Public dataset usage only
+  - Generic architecture patterns
+  - Focus on business metrics only
+  - Basic tutorial-style implementation
+  - Theoretical exploration
+  - Standard library usage without customization
+  - No specific domain requirements
+  - Research-focused implementation
+  uses_llm: true
+is_case_study:
+  criterion_name: Case Study Classification
+  criterion_description:
+  - "\"Evaluates whether a publication presents a real-world AI/ML implementation\
+    \ with \nfocus on business context, challenges faced, decisions made, and outcomes\
+    \ achieved.\"\n"
+  - "\"Must document an actual implementation in a specific organization or context,\
+    \ \nincluding business requirements and impact.\"\n"
+  - "\"The publication should present the problem context, approach taken, challenges\
+    \ \nencountered, and results achieved in business terms.\"\n"
+  - "\"The key differentiator is the focus on real-world implementation experience\
+    \ \nwith emphasis on business context and outcomes.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  - publication_tags
+  scoring_logic:
+  - value: 0
+    description: "\"Publication does not present a real-world implementation with\
+      \ business context \nand outcomes\"\n"
+  - value: 1
+    description: "\"Publication documents actual implementation experience with business\
+      \ context \nand results\"\n"
+  positive_indicators:
+  - Describes specific business problem
+  - Details organizational context
+  - Documents implementation journey
+  - Discusses business challenges faced
+  - Explains decision rationale
+  - Reports business outcomes
+  - Shares lessons learned
+  - Includes success metrics
+  - Describes stakeholder considerations
+  - Details resource constraints
+  negative_indicators:
+  - Purely technical implementation details
+  - Theoretical exploration
+  - Standard model implementations
+  - Research-focused content
+  - Tutorial-style guidance
+  - Generic problem solving
+  - No specific context
+  - Hypothetical scenarios
+  uses_llm: true
+is_industry_product_showcase:
+  criterion_name: Technical Product Showcase Classification
+  criterion_description:
+  - "\"Evaluates whether a publication presents an AI/ML product, platform, or service\
+    \ \nwith focus on its features and capabilities for potential users.\"\n"
+  - "\"Must showcase specific product offerings, emphasizing what the product does\
+    \ \nrather than how it works internally.\"\n"
+  - "\"The publication should detail product capabilities, use cases, and practical\
+    \ \nbenefits from a user perspective.\"\n"
+  - "\"The key differentiator is the focus on product features and value proposition\
+    \ \nrather than technical implementation or problem-solving approach.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  - publication_tags
+  scoring_logic:
+  - value: 0
+    description: '"Publication does not present a specific AI/ML product or its features"
+
+      '
+  - value: 1
+    description: '"Publication showcases a specific AI/ML product and its capabilities"
+
+      '
+  positive_indicators:
+  - Presents specific product features
+  - Lists product capabilities
+  - Shows use case scenarios
+  - Describes user benefits
+  - Details integration options
+  - Explains configuration settings
+  - Shows product interface
+  - Describes service tiers
+  - Outlines deployment options
+  - Demonstrates product usage
+  negative_indicators:
+  - Focus on internal implementation
+  - Detailed technical architecture
+  - Problem-solving methodology
+  - Research findings
+  - Open source development
+  - Pure solution architecture
+  - Generic tool usage
+  - Academic exploration
+  uses_llm: true
+is_solution_implementation_guide:
+  criterion_name: Solution Implementation Guide Classification
+  criterion_description:
+  - "\"Evaluates whether a publication provides step-by-step guidance for implementing\
+    \ \nAI/ML solutions in production environments.\"\n"
+  - "\"Must focus on practical deployment steps, production requirements, and operational\
+    \ \nconsiderations rather than conceptual understanding.\"\n"
+  - "\"The publication should provide reproducible implementation instructions that\
+    \ \naddress production-grade concerns.\"\n"
+  - "\"The key differentiator is the focus on 'how to implement in real-world setting'\
+    \ \nrather than 'how it works' or 'why we built it this way'.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  - publication_tags
+  scoring_logic:
+  - value: 0
+    description: '"Publication does not provide production-focused implementation
+      steps"
+
+      '
+  - value: 1
+    description: '"Publication provides practical guidance for production implementation"
+
+      '
+  positive_indicators:
+  - Production deployment steps
+  - Infrastructure setup instructions
+  - Security configuration details
+  - Scalability considerations
+  - Monitoring setup guidance
+  - Performance optimization steps
+  - Production environment requirements
+  - Operational procedures
+  - Maintenance guidelines
+  - Error handling approaches
+  - Production-grade configurations
+  negative_indicators:
+  - Focus on concept explanation
+  - Theoretical background
+  - Learning exercises
+  - Research methodology
+  - Basic toy examples
+  - Single implementation story
+  - Product features only
+  - Local development only
+  - Proof of concept setup
+  uses_llm: true
+section_structure_headings:
+  criterion_name: Section Structure Headings Count
+  criterion_description: "\"Evaluates whether the publication uses a sufficient number\
+    \ of main section headings \n(markdown # only) to break content into logical segments.\
+    \ This counts only top-level \nheadings (single #) and requires at least 5 to\
+    \ consider the content well-structured.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: Insufficient main headings (4 or fewer) for proper content structure
+  - value: 1
+    description: Adequate main headings (5 or more) creating clear content divisions
+  positive_indicators:
+  - Contains 5 or more main section headings (single '#' in markdown)
+  - Main headings create logical content divisions
+  - Each major topic has its own main heading
+  negative_indicators:
+  - Contains 4 or fewer main section headings
+  - Missing main headings for key content sections
+  - Content presented as continuous text with minimal structure
+  uses_llm: true
+section_structure_subheadings:
+  criterion_name: Section Structure Subheadings
+  criterion_description: "\"Evaluates whether the publication uses subheadings (markdown\
+    \ ##) to further organize content \nwithin main sections. This specifically checks\
+    \ for the presence of second-level headings (##) \nthat create a hierarchical\
+    \ structure and improve content organization and readability.\"\n"
+  required_items:
+  - publication_title
+  - publication_description
+  scoring_logic:
+  - value: 0
+    description: No subheadings (##) found in the publication
+  - value: 1
+    description: At least one subheading (##) found, showing hierarchical content
+      organization
+  positive_indicators:
+  - Contains at least one subheading (using '##' in markdown)
+  - Subheadings create logical subdivisions within main sections
+  - Hierarchical structure through proper heading levels
+  - Improved content organization through nested headings
+  negative_indicators:
+  - No subheadings used at all
+  - Only main headings (single '#') used
+  - Missing hierarchy in content organization
+  - Flat content structure without subdivisions
+  uses_llm: true
+
+publication_image_count:
+  criterion_name: "Visual Content Quality"
+  criterion_description: |
+    "Evaluates the use of visual elements (images, diagrams, charts) to enhance 
+    understanding and engagement. Publications with sufficient visual content tend 
+    to be more effective at communicating complex ideas and maintaining reader interest."
+  required_items:
+    - publication_description
+  scoring_logic:
+    - value: -3
+      description: "No images or visual elements in the publication"
+    - value: 0
+      description: "1-2 images or visual elements present, but limited"
+    - value: 1
+      description: "3+ images or visual elements providing good visual illustration"
+  positive_indicators:
+    - "Multiple relevant images or diagrams"
+    - "Visual elements that illustrate key concepts"
+    - "Charts or graphs that present data visually"
+    - "Screenshots demonstrating functionality"
+    - "Diagrams explaining architecture or workflows"
+    - "Consistent use of visual elements throughout"
+  negative_indicators:
+    - "No visual elements"
+    - "Very limited use of images"
+    - "Purely text-based explanation of complex topics"
+    - "Missing visual representation of data or processes"
+  non_llm_function: "evaluate_image_count"
+  uses_llm: false
+
+publication_text_len:
+  criterion_name: "Content Comprehensiveness"
+  criterion_description: |
+    "Assesses whether the publication contains sufficient textual content to 
+    adequately explain the concepts, implementation, and value of the work. 
+    Publications that are too brief often lack necessary details for reproducibility 
+    and understanding."
+  required_items:
+    - publication_description
+  scoring_logic:
+    - value: -5
+      description: "Extremely brief content (<3000 characters)"
+    - value: -3
+      description: "Insufficient content (3000-4000 characters)"
+    - value: 0
+      description: "Adequate content (4000-6000 characters)"
+    - value: 1
+      description: "Comprehensive content (>6000 characters)"
+  positive_indicators:
+    - "Detailed explanations of concepts"
+    - "Comprehensive descriptions of implementation"
+    - "In-depth discussion of results"
+    - "Thorough background information"
+    - "Multiple sections covering different aspects"
+    - "Substantive examples and use cases"
+  negative_indicators:
+    - "Extremely brief descriptions"
+    - "Missing key explanatory sections"
+    - "Incomplete or vague information"
+    - "Relies primarily on code or images with minimal explanation"
+    - "Lacks sufficient detail for understanding"
+  non_llm_function: "evaluate_text_length"
+  uses_llm: false
+
+
+video_presence:
+  criterion_name: "Video Presence"
+  criterion_description: |
+    "Evaluates whether the publication includes a video to enhance the content
+    experience. Videos can provide additional context, visual explanations, or demonstrations
+    that complement the written content."
+
+  required_items:
+    - publication_description
+  scoring_logic:
+    - value: 0
+      description: "No video found"
+    - value: 1
+      description: "Video found"
+
+  positive_indicators:
+    - "Video content enhances understanding"
+    - "Visual demonstrations or explanations"
+    - "Supplementary content for written material"
+    - "Engaging multimedia experience"
+    - "Complements written content"
+  negative_indicators:
+    - "No video content"
+    - "Lack of visual explanations"
+    - "Missing multimedia elements"
+    - "Limited engagement opportunities"
+    - "No supplementary content"
+  non_llm_function: "is_video_present"
+  uses_llm: false

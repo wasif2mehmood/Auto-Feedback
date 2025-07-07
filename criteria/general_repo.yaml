@@ -1,0 +1,1285 @@
+# Repository Criteria in YAML format matching repo_criteria.yaml structure
+
+# Documentation Criteria
+readme_presence:
+  criterion_name: README File Present
+  criterion_description: "Repository has a README file in the root directory."
+  required_items:
+  - repository_structure
+  scoring_logic:
+  - value: 0
+    description: "No README file found in root directory"
+  - value: 1
+    description: "README file present in root directory"
+  positive_indicators:
+  - README.md file exists in root
+  - README.txt file exists in root
+  - README file exists in root
+  negative_indicators:
+  - No README file in root directory
+  - README file only in subdirectories
+  uses_llm: false
+
+descriptive_title:
+  criterion_name: Descriptive Project Title
+  criterion_description: "README has a clear, descriptive title near the top that accurately represents the project's purpose and content. The title should be concise yet informative, avoiding uncommon acronyms or jargon without explanation."
+  required_items:
+  - readme_content
+  scoring_logic:
+  - value: 0
+    description: "Missing or unclear project title"
+  - value: 1
+    description: "Clear, descriptive title present"
+  positive_indicators:
+  - Title accurately represents project purpose
+  - Title is concise yet informative
+  - Title avoids unexplained acronyms
+  - Title positioned near top of README
+  negative_indicators:
+  - No clear title present
+  - Title is vague or generic
+  - Title uses unexplained jargon
+  - Title doesn't match project content
+  uses_llm: true
+
+concise_project_summary:
+  criterion_name: Concise Project Summary
+  criterion_description: "Clear statement of project or concise project summary near top of README"
+  required_items:
+  - readme_content
+  scoring_logic:
+  - value: 0
+    description: "Missing or unclear project summary"
+  - value: 1
+    description: "Clear, concise project summary present"
+  positive_indicators:
+  - Clear project purpose statement
+  - Summary appears near top of README
+  - Concise explanation of what project does
+  - Easy to understand project goal
+  negative_indicators:
+  - No project summary provided
+  - Summary is too vague
+  - Summary buried in document
+  - Unclear project purpose
+  uses_llm: true
+
+detailed_project_overview:
+  criterion_name: Detailed Project Overview
+  criterion_description: "Clear explanation of the project that provides enough context to understand its functionality, approach, and value. Typically 1-2 paragraphs that expand on the purpose statement with more details."
+  required_items:
+  - readme_content
+  scoring_logic:
+  - value: 0
+    description: "Missing or inadequate project overview"
+  - value: 1
+    description: "Comprehensive project overview provided"
+  positive_indicators:
+  - Explains project functionality
+  - Describes project approach
+  - Communicates project value
+  - Provides sufficient context
+  - 1-2 paragraphs of detail
+  negative_indicators:
+  - No detailed overview
+  - Overview too brief
+  - Missing key context
+  - Unclear functionality explanation
+  uses_llm: true
+
+readme_structure:
+  criterion_name: Well-Structured README
+  criterion_description: "Well-structured readme with clear headings and logical organization of information into distinct sections such as overview, installation, usage, etc."
+  required_items:
+  - readme_content
+  scoring_logic:
+  - value: 0
+    description: "Poor README structure"
+  - value: 1
+    description: "Well-structured README with clear sections"
+  positive_indicators:
+  - Clear section headings
+  - Logical information organization
+  - Distinct sections for different topics
+  - Easy to navigate structure
+  negative_indicators:
+  - No clear sections
+  - Poor organization
+  - Missing important sections
+  - Confusing structure
+  uses_llm: true
+
+project_structure_explained_basic:
+  criterion_name: Basic Repo Structure Overview
+  criterion_description: "Explanation of at least the main directories and usage scripts (such as /src, /data, /models, etc.)."
+  required_items:
+  - readme_content
+  - repository_structure
+  scoring_logic:
+  - value: 0
+    description: "No explanation of repository structure"
+  - value: 1
+    description: "Basic repository structure explained"
+  positive_indicators:
+  - Main directories explained
+  - Usage scripts identified
+  - Key folders described
+  - Basic structure overview provided
+  negative_indicators:
+  - No structure explanation
+  - Missing directory descriptions
+  - Unclear folder purposes
+  uses_llm: true
+
+project_structure_explained_all:
+  criterion_name: Comprehensive Repo Structure Documentation
+  criterion_description: "Explanation of all directories in the repository. A brief explanation of the purpose of the directory is enough for passing the criterion."
+  required_items:
+  - readme_content
+  - repository_structure
+  scoring_logic:
+  - value: 0
+    description: "Incomplete directory explanations"
+  - value: 1
+    description: "All directories explained"
+  positive_indicators:
+  - All directories have explanations
+  - Purpose of each directory clear
+  - Comprehensive structure documentation
+  negative_indicators:
+  - Some directories unexplained
+  - Missing directory purposes
+  - Incomplete structure documentation
+  uses_llm: true
+
+prerequisites_declared:
+  criterion_name: Prerequisites Clearly Stated
+  criterion_description: "Lists the necessary knowledge, hardware requirements such as GPU, and system compatibility information before installation. This does not include software dependencies (e.g., Python libraries), which are covered under Environment & Dependency Management. The prerequisites should be listed in the README file. If one prerequisite is listed, the criterion is met."
+  required_items:
+  - readme_content
+  scoring_logic:
+  - value: 0
+    description: "No prerequisites listed"
+  - value: 1
+    description: "Prerequisites clearly stated"
+  positive_indicators:
+  - Hardware requirements specified
+  - System compatibility noted
+  - Required knowledge listed
+  - Prerequisites in README
+  negative_indicators:
+  - No prerequisites mentioned
+  - Missing hardware requirements
+  - Unclear system requirements
+  uses_llm: true
+
+installation_instructions_basic:
+  criterion_name: Basic Installation Guide
+  criterion_description: "Basic installation information (dependencies)"
+  required_items:
+  - readme_content
+  scoring_logic:
+  - value: 0
+    description: "No installation instructions"
+  - value: 1
+    description: "Basic installation guide provided"
+  positive_indicators:
+  - Installation steps provided
+  - Dependencies mentioned
+  - Basic setup instructions
+  negative_indicators:
+  - No installation information
+  - Missing setup steps
+  - Unclear installation process
+  uses_llm: true
+
+installation_step_by_step:
+  criterion_name: Detailed Installation Instructions
+  criterion_description: "Detailed installation instructions for repo and prerequisites"
+  required_items:
+  - readme_content
+  scoring_logic:
+  - value: 0
+    description: "Missing detailed installation steps"
+  - value: 1
+    description: "Comprehensive installation instructions provided"
+  positive_indicators:
+  - Step-by-step installation guide
+  - Prerequisites installation covered
+  - Detailed setup instructions
+  - Clear installation process
+  negative_indicators:
+  - Vague installation instructions
+  - Missing prerequisite setup
+  - Incomplete installation steps
+  uses_llm: true
+
+environment_dependency_information:
+  criterion_name: Environment & Dependency Management Documentation
+  criterion_description: "Specifies required Python version, dependency management (e.g., requirements.txt, poetry.lock, conda.yaml), and recommendations for environment reproducibility (e.g., Docker, Conda, virtual environments). Does not cover hardware requirements or system compatibility, which are listed under Prerequisites Clearly Stated."
+  required_items:
+  - readme_content
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "Missing environment/dependency information"
+  - value: 1
+    description: "Environment and dependency management documented"
+  positive_indicators:
+  - Python version specified
+  - Dependency files present
+  - Environment management guidance
+  - Reproducibility recommendations
+  negative_indicators:
+  - No Python version specified
+  - Missing dependency information
+  - No environment setup guidance
+  uses_llm: true
+
+usage_instructions_basic:
+  criterion_name: Basic Usage Instructions
+  criterion_description: "Basic information on how to use the repo (main script and execution)"
+  required_items:
+  - readme_content
+  scoring_logic:
+  - value: 0
+    description: "No usage instructions provided"
+  - value: 1
+    description: "Basic usage instructions available"
+  positive_indicators:
+  - Main script execution explained
+  - Basic usage examples
+  - Clear execution instructions
+  negative_indicators:
+  - No usage information
+  - Unclear execution process
+  - Missing basic examples
+  uses_llm: true
+
+usage_step_by_step:
+  criterion_name: Step-by-Step Usage Guide
+  criterion_description: "Detailed step-by-step usage instructions (data prep, execution, outputs)"
+  required_items:
+  - readme_content
+  scoring_logic:
+  - value: 0
+    description: "Missing detailed usage steps"
+  - value: 1
+    description: "Comprehensive step-by-step usage guide"
+  positive_indicators:
+  - Data preparation steps
+  - Execution workflow
+  - Output descriptions
+  - Complete usage process
+  negative_indicators:
+  - Vague usage instructions
+  - Missing workflow steps
+  - Unclear process flow
+  uses_llm: true
+
+usage_examples:
+  criterion_name: Practical Code Examples
+  criterion_description: "Concrete, executable code examples that demonstrate key functionality in a clear, concise manner."
+  required_items:
+  - readme_content
+  scoring_logic:
+  - value: 0
+    description: "No practical code examples"
+  - value: 1
+    description: "Clear, executable code examples provided"
+  positive_indicators:
+  - Concrete code examples
+  - Executable demonstrations
+  - Key functionality illustrated
+  - Clear, concise examples
+  negative_indicators:
+  - No code examples
+  - Abstract examples only
+  - Non-executable examples
+  uses_llm: true
+
+testing_documentation:
+  criterion_name: Testing Instructions
+  criterion_description: "Instructions for running tests"
+  required_items:
+  - readme_content
+  scoring_logic:
+  - value: 0
+    description: "No testing instructions"
+  - value: 1
+    description: "Testing instructions provided"
+  positive_indicators:
+  - Test execution instructions
+  - Test framework usage
+  - Testing guidelines
+  negative_indicators:
+  - No testing information
+  - Missing test instructions
+  uses_llm: true
+
+data_requirements_explained:
+  criterion_name: Data Requirements Specified
+  criterion_description: "Documentation of expected data formats and setup"
+  required_items:
+  - readme_content
+  scoring_logic:
+  - value: 0
+    description: "Data requirements not specified"
+  - value: 1
+    description: "Data requirements clearly documented"
+  positive_indicators:
+  - Data format specifications
+  - Data setup instructions
+  - Input requirements explained
+  negative_indicators:
+  - No data requirements
+  - Unclear data formats
+  - Missing setup information
+  uses_llm: true
+
+key_parameters_explained:
+  criterion_name: Parameter Documentation
+  criterion_description: "Documentation of key modeling parameters and considerations"
+  required_items:
+  - readme_content
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "Parameters not documented"
+  - value: 1
+    description: "Key parameters explained"
+  positive_indicators:
+  - Parameter descriptions
+  - Configuration options
+  - Parameter considerations
+  negative_indicators:
+  - No parameter documentation
+  - Missing configuration info
+  uses_llm: true
+
+key_config_explained:
+  criterion_name: Configuration Options Explained
+  criterion_description: "Information on key configuration options"
+  required_items:
+  - readme_content
+  scoring_logic:
+  - value: 0
+    description: "Configuration options not explained"
+  - value: 1
+    description: "Configuration options documented"
+  positive_indicators:
+  - Configuration settings explained
+  - Option descriptions
+  - Setup configuration guide
+  negative_indicators:
+  - No configuration information
+  - Missing option descriptions
+  uses_llm: true
+
+methodology_description_provided:
+  criterion_name: Methodology Documentation
+  criterion_description: "Basic methodology information or reference to external documentation"
+  required_items:
+  - readme_content
+  scoring_logic:
+  - value: 0
+    description: "No methodology documentation"
+  - value: 1
+    description: "Methodology information provided"
+  positive_indicators:
+  - Methodology explanation
+  - External documentation references
+  - Approach description
+  negative_indicators:
+  - No methodology information
+  - Missing approach details
+  uses_llm: true
+
+license_in_readme:
+  criterion_name: License Identification
+  criterion_description: "README includes a clear mention of the project's license(s)."
+  required_items:
+  - readme_content
+  scoring_logic:
+  - value: 0
+    description: "No license mentioned in README"
+  - value: 1
+    description: "License clearly identified in README"
+  positive_indicators:
+  - License type mentioned
+  - License section in README
+  - Clear license identification
+  negative_indicators:
+  - No license information
+  - Missing license section
+  uses_llm: true
+
+contributing_guidelines_provided:
+  criterion_name: Contribution Guidelines
+  criterion_description: "Guidelines for project contribution"
+  required_items:
+  - readme_content
+  scoring_logic:
+  - value: 0
+    description: "No contribution guidelines"
+  - value: 1
+    description: "Contribution guidelines provided"
+  positive_indicators:
+  - Contribution process explained
+  - Guidelines for contributors
+  - Contribution instructions
+  negative_indicators:
+  - No contribution information
+  - Missing guidelines
+  uses_llm: true
+
+changelog_documented:
+  criterion_name: Change History
+  criterion_description: "Repository includes changelog information either in README or in a dedicated file (like CHANGELOG.md), documenting significant version changes."
+  required_items:
+  - readme_content
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "No changelog documentation"
+  - value: 1
+    description: "Changelog information available"
+  positive_indicators:
+  - CHANGELOG.md file present
+  - Version changes documented
+  - Change history in README
+  negative_indicators:
+  - No changelog information
+  - Missing version history
+  uses_llm: true
+
+contact_info_provided:
+  criterion_name: Maintainer Contact Information
+  criterion_description: "Clear contact information for maintainers. The contact information should be provided in the README file. A presence of an email address is enough for passing the criterion."
+  required_items:
+  - readme_content
+  scoring_logic:
+  - value: 0
+    description: "No contact information provided"
+  - value: 1
+    description: "Contact information available"
+  positive_indicators:
+  - Email address provided
+  - Maintainer contact details
+  - Contact section in README
+  negative_indicators:
+  - No contact information
+  - Missing maintainer details
+  uses_llm: true
+
+# License and Legal Criteria
+license_presence:
+  criterion_name: License Presence
+  criterion_description: "Repository includes a recognized license file (LICENSE, LICENSE.md, LICENSE.txt) in the root directory, explicitly stating the terms of use, modification, and distribution. If no separate file exists, the README or documentation must contain clear licensing terms."
+  required_items:
+  - repository_structure
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "No license file or clear licensing terms"
+  - value: 1
+    description: "License file present or clear licensing terms documented"
+  positive_indicators:
+  - LICENSE file in root directory
+  - Clear licensing terms in README
+  - Recognized license format
+  negative_indicators:
+  - No license file
+  - Missing licensing terms
+  - Unclear license status
+  uses_llm: false
+
+license_appropriateness:
+  criterion_name: License Appropriateness
+  criterion_description: "The repository's chosen license is suitable for its purpose, dependencies, and intended use, ensuring clarity on permissions and restrictions. Repositories with unclear or conflicting licenses do not meet this criterion."
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "License inappropriate or conflicting"
+  - value: 1
+    description: "License appropriate for project purpose"
+  positive_indicators:
+  - License matches project purpose
+  - Compatible with dependencies
+  - Clear permissions and restrictions
+  negative_indicators:
+  - License conflicts with dependencies
+  - Inappropriate license choice
+  - Unclear terms
+  uses_llm: true
+
+copyright_notice_mentioned:
+  criterion_name: Copyright Notice
+  criterion_description: "The repository includes explicit copyright statements in source files and documentation, indicating ownership and rights. This helps prevent ambiguity in legal rights and attribution."
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "No copyright notices found"
+  - value: 1
+    description: "Copyright notices present"
+  positive_indicators:
+  - Copyright statements in files
+  - Ownership clearly indicated
+  - Rights attribution present
+  negative_indicators:
+  - No copyright notices
+  - Missing ownership information
+  uses_llm: true
+
+data_usage_rights_mentioned:
+  criterion_name: Data Usage Rights
+  criterion_description: "For repositories handling datasets, clear documentation must state data ownership, licensing, usage rights, compliance requirements, and any restrictions. If the repository does not handle datasets, this criterion should be satisfied."
+  required_items:
+  - readme_content
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "Missing data usage rights documentation"
+  - value: 1
+    description: "Data usage rights clearly documented or not applicable"
+  positive_indicators:
+  - Data ownership specified
+  - Usage rights documented
+  - Compliance requirements stated
+  - Repository doesn't handle datasets
+  negative_indicators:
+  - Missing data rights information
+  - Unclear usage permissions
+  uses_llm: true
+
+model_usage_rights_mentioned:
+  criterion_name: Model Usage Rights
+  criterion_description: "If the repository includes or references ML models, documentation must specify model ownership, licensing, usage terms, and redistribution policies. If the repository does not include or reference ML models, this criterion should be satisfied."
+  required_items:
+  - readme_content
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "Missing model usage rights documentation"
+  - value: 1
+    description: "Model usage rights documented or not applicable"
+  positive_indicators:
+  - Model ownership specified
+  - Usage terms documented
+  - Redistribution policies clear
+  - Repository doesn't include models
+  negative_indicators:
+  - Missing model rights information
+  - Unclear usage terms
+  uses_llm: true
+
+code_of_conduct_mentioned:
+  criterion_name: Code of Conduct
+  criterion_description: "The repository includes a Code of Conduct, outlining contributor behavior expectations, enforcement mechanisms, and reporting guidelines to foster an inclusive and respectful environment."
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "No Code of Conduct present"
+  - value: 1
+    description: "Code of Conduct documented"
+  positive_indicators:
+  - CODE_OF_CONDUCT.md file present
+  - Behavior expectations outlined
+  - Enforcement mechanisms described
+  - Reporting guidelines provided
+  negative_indicators:
+  - No Code of Conduct file
+  - Missing behavior guidelines
+  uses_llm: true
+
+# Environment and Dependencies Criteria
+dependencies_listed:
+  criterion_name: Dependencies Listed
+  criterion_description: "Repository clearly lists all project dependencies in standard formats (requirements.txt, setup.py, pyproject.toml, Pipfile.lock, setup.py, environment.yml etc.). Look for any dependency management files such as requirements.txt, setup.py, pyproject.toml, Pipfile, poetry.lock, uv.lock, package.json, etc. The criterion is satisfied if there is at least one such file."
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "No dependency files found"
+  - value: 1
+    description: "Dependencies listed in standard format"
+  positive_indicators:
+  - requirements.txt present
+  - setup.py with dependencies
+  - pyproject.toml with dependencies
+  - Other dependency management files
+  negative_indicators:
+  - No dependency files
+  - Missing dependency information
+  uses_llm: false
+
+pinned_dependencies:
+  criterion_name: Pinned Dependencies
+  criterion_description: "Dependencies have specific versions to ensure reproducibility (preferably production dependencies pinned)."
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "Dependencies not pinned to specific versions"
+  - value: 1
+    description: "Dependencies pinned to specific versions"
+  positive_indicators:
+  - Version numbers specified
+  - Exact version pinning
+  - Production dependencies pinned
+  negative_indicators:
+  - No version specifications
+  - Only range specifications
+  uses_llm: true
+
+dependency_groups:
+  criterion_name: Dependency Groups
+  criterion_description: "Dependencies organized into logical groups (core, dev, test) via separate requirement files (e.g., requirements-dev.txt) or in configuration files (e.g., pyproject.toml, setup.py extras_require)."
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "Dependencies not organized into groups"
+  - value: 1
+    description: "Dependencies organized into logical groups"
+  positive_indicators:
+  - Separate requirements files
+  - extras_require in setup.py
+  - Dependency groups in pyproject.toml
+  negative_indicators:
+  - All dependencies in single file
+  - No group organization
+  uses_llm: true
+
+python_version_specified:
+  criterion_name: Python Version Specified
+  criterion_description: "Required Python version(s) specified in configuration files like pyproject.toml, setup.py, runtime.txt, or .python-version."
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "Python version not specified"
+  - value: 1
+    description: "Python version specified"
+  positive_indicators:
+  - Python version in pyproject.toml
+  - Version in setup.py
+  - runtime.txt file present
+  - .python-version file present
+  negative_indicators:
+  - No Python version specified
+  - Missing version information
+  uses_llm: true
+
+environment_managed:
+  criterion_name: Environment Management
+  criterion_description: "Repository contains configuration for virtual environments such as environment.yml (conda), Pipfile (pipenv), poetry.lock (poetry), uv.lock (uv), or similar environment management files. Environment configuration files can be any of the well-known environment management files even if they are not specifically mentioned in the prompt."
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "No environment management configuration"
+  - value: 1
+    description: "Environment management configuration present"
+  positive_indicators:
+  - environment.yml file
+  - Pipfile present
+  - poetry.lock file
+  - uv.lock file
+  - Other environment files
+  negative_indicators:
+  - No environment configuration
+  - Missing environment files
+  uses_llm: false
+
+reproducible_environment:
+  criterion_name: Reproducible Environment
+  criterion_description: "Lockfiles or exact environment specifications provided. Look for any lockfiles or exact environment specifications provided. If one is found, the criterion is satisfied."
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "No lockfiles or exact specifications"
+  - value: 1
+    description: "Lockfiles or exact specifications present"
+  positive_indicators:
+  - poetry.lock file
+  - Pipfile.lock present
+  - uv.lock file
+  - Exact environment specifications
+  negative_indicators:
+  - No lockfiles
+  - Missing exact specifications
+  uses_llm: false
+
+gpu_requirements_documented:
+  criterion_name: GPU Requirements Documented
+  criterion_description: "GPU-specific dependencies or requirements indicated in configuration files (e.g., tensorflow-gpu in requirements.txt, CUDA versions in environment files, GPU constraints in Dockerfiles)."
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "No GPU requirements documented"
+  - value: 1
+    description: "GPU requirements documented"
+  positive_indicators:
+  - GPU dependencies listed
+  - CUDA versions specified
+  - GPU constraints in Docker
+  negative_indicators:
+  - No GPU requirements
+  - Missing GPU specifications
+  uses_llm: true
+
+containerization:
+  criterion_name: Containerization
+  criterion_description: "Provides Dockerfile or equivalent containerization."
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "No containerization provided"
+  - value: 1
+    description: "Containerization configuration present"
+  positive_indicators:
+  - Dockerfile present
+  - Docker-compose.yml file
+  - Container configuration
+  negative_indicators:
+  - No containerization files
+  - Missing container configuration
+  uses_llm: false
+
+# Code Quality Criteria
+functions_and_classes:
+  criterion_name: Modular Code Organization
+  criterion_description: "Code organized into functions/methods rather than monolithic scripts"
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "Code not organized into functions/classes"
+  - value: 1
+    description: "Code properly organized into functions/classes"
+  positive_indicators:
+  - Functions defined
+  - Classes present
+  - Modular code structure
+  negative_indicators:
+  - Monolithic scripts
+  - No function definitions
+  uses_llm: true
+
+script_length:
+  criterion_name: Script Length Control
+  criterion_description: "Individual scripts/modules have reasonable length (< 500 lines)"
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "Scripts exceed 500 lines"
+  - value: 1
+    description: "Scripts within reasonable length"
+  positive_indicators:
+  - Scripts under 500 lines
+  - Manageable file sizes
+  negative_indicators:
+  - Scripts over 500 lines
+  - Excessively long files
+  uses_llm: false
+
+function_length:
+  criterion_name: Function Length Control
+  criterion_description: "Functions and methods are reasonably sized (< 100 lines). If the file does not contain functions, this criterion should be satisfied."
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "Functions exceed 100 lines"
+  - value: 1
+    description: "Functions within reasonable length or no functions present"
+  positive_indicators:
+  - Functions under 100 lines
+  - No functions present
+  - Well-sized methods
+  negative_indicators:
+  - Functions over 100 lines
+  - Excessively long methods
+  uses_llm: true
+
+code_duplication:
+  criterion_name: Code Duplication Check
+  criterion_description: "Limited code duplication (< 10% duplicate code)"
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "Excessive code duplication"
+  - value: 1
+    description: "Limited code duplication"
+  positive_indicators:
+  - Minimal duplicate code
+  - Good code reuse
+  negative_indicators:
+  - High code duplication
+  - Repeated code blocks
+  uses_llm: true
+
+centralized_config:
+  criterion_name: Configuration File Presence
+  criterion_description: "Dedicated configuration files exist (e.g., config.py, config.json, .env)"
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "No dedicated configuration files"
+  - value: 1
+    description: "Configuration files present"
+  positive_indicators:
+  - config.py file present
+  - config.json file present
+  - .env file present
+  - Other configuration files
+  negative_indicators:
+  - No configuration files
+  - Missing config management
+  uses_llm: true
+
+no_hardcoded_constants:
+  criterion_name: Hardcoded Value Detection
+  criterion_description: "Limited hardcoded constants in core code. Storing fixed values in variables such as Pi, e, names of llms or api keys is allowed and should not be considered as hardcoded constants."
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "Excessive hardcoded constants"
+  - value: 1
+    description: "Limited hardcoded constants"
+  positive_indicators:
+  - Constants in variables
+  - Configuration-driven values
+  - Minimal hardcoding
+  negative_indicators:
+  - Excessive hardcoded values
+  - Magic numbers in code
+  uses_llm: true
+
+env_variables:
+  criterion_name: Environment Variable Usage
+  criterion_description: "References to environment variables for sensitive configurations. Look for any references to environment variables in the codebase. For example, os.getenv('API_KEY') or load_dotenv() or any other function that loads/uses environment variables."
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "No environment variable usage"
+  - value: 1
+    description: "Environment variables used"
+  positive_indicators:
+  - os.getenv() usage
+  - load_dotenv() calls
+  - Environment variable references
+  negative_indicators:
+  - No environment variables
+  - Missing env var usage
+  uses_llm: true
+
+logging_basic:
+  criterion_name: Logging Import Detection
+  criterion_description: "Evidence of logging library usage"
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "No logging library usage"
+  - value: 1
+    description: "Logging library used"
+  positive_indicators:
+  - import logging
+  - Logging library imports
+  - Log statements present
+  negative_indicators:
+  - No logging imports
+  - Missing log statements
+  uses_llm: true
+
+logging_advanced:
+  criterion_name: Logging Configuration
+  criterion_description: "Presence of logging configuration (levels, formats)"
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "No logging configuration"
+  - value: 1
+    description: "Logging configuration present"
+  positive_indicators:
+  - Log level configuration
+  - Log format specification
+  - Logger configuration
+  negative_indicators:
+  - No log configuration
+  - Missing log setup
+  uses_llm: true
+
+error_handling_basic:
+  criterion_name: Exception Usage
+  criterion_description: "Presence of try/except blocks in the codebase. If the script is guaranteed to not raise an exception, this criterion should be scored 1. For example, a file that only contains print statements should be scored 1. A file that only contains constant variables should be scored 1."
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "No error handling present"
+  - value: 1
+    description: "Error handling implemented or not needed"
+  positive_indicators:
+  - try/except blocks present
+  - Script unlikely to raise exceptions
+  - Simple scripts with no exception sources
+  negative_indicators:
+  - No error handling
+  - Missing exception handling
+  uses_llm: true
+
+error_handling_advanced:
+  criterion_name: Custom Exception Classes
+  criterion_description: "Definition of project-specific exception classes. Look for any custom exception classes that are defined in the codebase. If one is found, the criterion is satisfied."
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "No custom exception classes"
+  - value: 1
+    description: "Custom exception classes defined"
+  positive_indicators:
+  - Custom exception definitions
+  - Project-specific exceptions
+  negative_indicators:
+  - No custom exceptions
+  - Only standard exceptions used
+  uses_llm: true
+
+testing_basic:
+  criterion_name: Test File Presence
+  criterion_description: "Existence of test files (test_*.py or *_test.py)"
+  required_items:
+  - repository_structure
+  scoring_logic:
+  - value: 0
+    description: "No test files found"
+  - value: 1
+    description: "Test files present"
+  positive_indicators:
+  - test_*.py files present
+  - Test directory exists
+  negative_indicators:
+  - No test files
+  - Missing test structure
+  uses_llm: false
+
+testing_comprehensive:
+  criterion_name: Test Coverage
+  criterion_description: "Test coverage metrics available (e.g., .coverage file)"
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "No test coverage metrics"
+  - value: 1
+    description: "Test coverage metrics available"
+  positive_indicators:
+  - .coverage file present
+  - Coverage configuration
+  - Coverage reports
+  negative_indicators:
+  - No coverage files
+  - Missing coverage setup
+  uses_llm: true
+
+testing_framework:
+  criterion_name: Test Framework Usage
+  criterion_description: "Evidence of test framework (pytest, unittest). Focus on the content of testing files. Files that do not contain any testing code should be scored 0."
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "No test framework usage"
+  - value: 1
+    description: "Test framework used"
+  positive_indicators:
+  - pytest usage
+  - unittest usage
+  - Test framework imports
+  negative_indicators:
+  - No test framework
+  - Missing testing code
+  uses_llm: true
+
+uses_docstrings:
+  criterion_name: Docstring Presence
+  criterion_description: "Functions, classes, modules have docstrings. If the file does not contain functions and classes, this criterion should be satisfied."
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "Missing docstrings"
+  - value: 1
+    description: "Docstrings present or not applicable"
+  positive_indicators:
+  - Function docstrings
+  - Class docstrings
+  - Module docstrings
+  - No functions/classes present
+  negative_indicators:
+  - Missing docstrings
+  - Undocumented functions/classes
+  uses_llm: true
+
+complete_docstrings:
+  criterion_name: Docstring Completeness
+  criterion_description: "Docstrings include parameters and return sections. If the file does not contain functions and classes, this criterion should be satisfied. Do not look for return values in classes docstrings."
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "Incomplete docstrings"
+  - value: 1
+    description: "Complete docstrings or not applicable"
+  positive_indicators:
+  - Parameter documentation
+  - Return value documentation
+  - Complete function docstrings
+  - No functions/classes present
+  negative_indicators:
+  - Missing parameter docs
+  - Missing return docs
+  uses_llm: true
+
+type_hints:
+  criterion_name: Type Hint Usage
+  criterion_description: "Presence of type hints in function signatures. If the file does not contain functions and classes, this criterion should be satisfied."
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "No type hints"
+  - value: 1
+    description: "Type hints present or not applicable"
+  positive_indicators:
+  - Function type hints
+  - Parameter type annotations
+  - Return type annotations
+  - No functions/classes present
+  negative_indicators:
+  - Missing type hints
+  - Untyped functions
+  uses_llm: true
+
+code_style_tools:
+  criterion_name: Style Checker Configuration
+  criterion_description: "Presence of style checker configuration files"
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "No style checker configuration"
+  - value: 1
+    description: "Style checker configuration present"
+  positive_indicators:
+  - .flake8 file present
+  - .pylintrc file present
+  - pyproject.toml with style config
+  - Other style config files
+  negative_indicators:
+  - No style configuration
+  - Missing style checker setup
+  uses_llm: true
+
+code_style_consistency:
+  criterion_name: Consistent Formatting
+  criterion_description: "Evidence of consistent indentation and formatting"
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "Inconsistent formatting"
+  - value: 1
+    description: "Consistent formatting"
+  positive_indicators:
+  - Consistent indentation
+  - Uniform code style
+  - Proper formatting
+  negative_indicators:
+  - Inconsistent indentation
+  - Mixed formatting styles
+  uses_llm: true
+
+class_size:
+  criterion_name: Class Size Control
+  criterion_description: "Classes have reasonable number of methods (< 20). If the file does not contain classes, this criterion should be satisfied."
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "Classes too large"
+  - value: 1
+    description: "Classes reasonable size or not applicable"
+  positive_indicators:
+  - Classes under 20 methods
+  - No classes present
+  - Well-sized classes
+  negative_indicators:
+  - Classes over 20 methods
+  - Excessively large classes
+  uses_llm: true
+
+seed_setting:
+  criterion_name: Random Seed Setting
+  criterion_description: "Explicit random seed setting in code. If the script is deterministic, this criterion should be satisfied. Only check for random seed setting if the script is not deterministic. For example, code that contains random sampling, train/test split, etc. should be checked for random seed setting."
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "Missing random seed setting"
+  - value: 1
+    description: "Random seed set or deterministic code"
+  positive_indicators:
+  - Random seed setting
+  - Deterministic code
+  - No random operations
+  negative_indicators:
+  - Random operations without seed
+  - Non-deterministic code
+  uses_llm: true
+
+data_quality_checks:
+  criterion_name: Data Validation Code
+  criterion_description: "Input data validation logic present"
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "No data validation"
+  - value: 1
+    description: "Data validation present"
+  positive_indicators:
+  - Input validation checks
+  - Data quality checks
+  - Validation logic
+  negative_indicators:
+  - No validation
+  - Missing data checks
+  uses_llm: true
+
+model_organization:
+  criterion_name: Model File Organization
+  criterion_description: "ML models in dedicated modules/classes"
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "Models not organized"
+  - value: 1
+    description: "Models well organized"
+  positive_indicators:
+  - Model classes defined
+  - Dedicated model modules
+  - Organized model structure
+  negative_indicators:
+  - Models scattered in code
+  - No model organization
+  uses_llm: true
+
+notebook_cell_size:
+  criterion_name: Notebook Code Structure
+  criterion_description: "Cells organized with fewer than 100 lines per cell"
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "Cells too large"
+  - value: 1
+    description: "Cells appropriately sized"
+  positive_indicators:
+  - Cells under 100 lines
+  - Well-organized cells
+  negative_indicators:
+  - Cells over 100 lines
+  - Excessively large cells
+  uses_llm: true
+
+notebook_documentation:
+  criterion_name: Notebook Documentation
+  criterion_description: "Notebooks include markdown cells (>10% of cells)"
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "Insufficient documentation cells"
+  - value: 1
+    description: "Adequate documentation cells"
+  positive_indicators:
+  - Over 10% markdown cells
+  - Good documentation
+  negative_indicators:
+  - Under 10% markdown cells
+  - Poor documentation
+  uses_llm: true
+
+notebook_imports:
+  criterion_name: Notebook Imports
+  criterion_description: "Evidence of importing custom modules (not just standard libraries)"
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "No custom module imports"
+  - value: 1
+    description: "Custom modules imported"
+  positive_indicators:
+  - Custom module imports
+  - Local package imports
+  negative_indicators:
+  - Only standard library imports
+  - No custom imports
+  uses_llm: true
+
+notebook_output_management:
+  criterion_name: Clean Notebook Outputs
+  criterion_description: "Either consistently cleared outputs or only relevant outputs retained"
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "Poor output management"
+  - value: 1
+    description: "Good output management"
+  positive_indicators:
+  - Cleared outputs
+  - Relevant outputs only
+  - Clean notebook state
+  negative_indicators:
+  - Excessive outputs
+  - Cluttered notebook
+  uses_llm: true
+
+package_structure:
+  criterion_name: Package Organization
+  criterion_description: "Proper package structure with init.py files"
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "No package structure"
+  - value: 1
+    description: "Proper package structure"
+  positive_indicators:
+  - __init__.py files present
+  - Package structure
+  - Proper organization
+  negative_indicators:
+  - No __init__.py files
+  - Missing package structure
+  uses_llm: true
