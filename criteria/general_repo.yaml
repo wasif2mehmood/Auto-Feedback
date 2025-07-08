@@ -1283,3 +1283,78 @@ package_structure:
   - No __init__.py files
   - Missing package structure
   uses_llm: true
+
+
+# Logic-based criteria (these use custom scoring functions)
+secret_management:
+  criterion_name: Secret Management
+  criterion_description: "Check if secrets are properly managed and stored in a secure manner. Repository should not contain sensitive credential files that could compromise security."
+  required_items:
+  - repository_structure
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "Repository contains sensitive files that should not be shared publicly"
+  - value: 1
+    description: "No sensitive credential files found in repository"
+  positive_indicators:
+  - No .env files with credentials
+  - No API keys in code
+  - No credential files present
+  - Proper use of .gitignore for secrets
+  - Use of environment variables
+  - Example/template files instead of real credentials
+  negative_indicators:
+  - .env files with actual credentials
+  - credentials.json files present
+  - AWS/GCP credential files
+  - SSH private keys in repository
+  - API keys hardcoded in source
+  - secrets.yaml/json files present
+  uses_llm: false
+
+repository_size:
+  criterion_name: Repository Size Control
+  criterion_description: "Check if the repository size is reasonable and does not exceed the specified limit (typically 100MB). Large repositories can be difficult to clone and work with."
+  required_items:
+  - repository_structure
+  scoring_logic:
+  - value: 0
+    description: "Repository size exceeds the maximum allowed limit"
+  - value: 1
+    description: "Repository size is within acceptable limits"
+  positive_indicators:
+  - Repository under size limit
+  - Efficient use of storage
+  - No large binary files
+  - Proper .gitignore usage
+  negative_indicators:
+  - Repository exceeds size limit
+  - Large binary files included
+  - Unnecessary files not ignored
+  - Poor storage management
+  uses_llm: false
+  args:
+    max_size: 100
+
+script_length:
+  criterion_name: Script Length Control
+  criterion_description: "Individual scripts/modules have reasonable length (< 500 lines)"
+  required_items:
+  - file_content
+  scoring_logic:
+  - value: 0
+    description: "Scripts exceed maximum allowed length"
+  - value: 1
+    description: "All scripts within reasonable length"
+  positive_indicators:
+  - Scripts under length limit
+  - Manageable file sizes
+  - Well-modularized code
+  negative_indicators:
+  - Scripts over length limit
+  - Excessively long files
+  - Monolithic code structure
+  uses_llm: false
+  args:
+    max_script_length: 500

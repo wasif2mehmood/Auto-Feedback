@@ -1,11 +1,10 @@
 {
-    "mode":"repo",
+    "mode":"publication",
     "criteria_path":"./criteria/general_repo.yaml",
     "score_path":"./scores/general_repo.csv",
     "publications":[
-        "Az72dkvWhXdL"
     ],
     "repository_url":"",
     "output_path":"./rag_feedback.json",
-    "criteria":["secret_management","readme_presence","dependencies_listed","license_presence","readme_structure"]
+    "criteria":[]
 }

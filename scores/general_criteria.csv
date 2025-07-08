@@ -1,4 +1,4 @@
-external_id,criterion_id,explanation,recommendation,total,score
+publication_external_id,criteria,explanation,recommendation,total,score
 m7GVzxm05ZEj,publication_image_count,No images found in the publication. Visual content enhances reader engagement and understanding.,Add relevant images to enhance the publication and improve reader engagement.,1,-3
 m7GVzxm05ZEj,publication_text_len,Publication text length is 5434 characters.,Consider adding more details to strengthen the publication.,1,0
 m7GVzxm05ZEj,visual_header,"The article does not contain any paragraphs, which indicates a lack of substantial content. This absence of text means that the article fails to provide the necessary information or context that would typically be expected in a publication.","To improve the article and meet the criterion, it is essential to include well-structured paragraphs that convey meaningful content. This could involve adding introductory, body, and concluding paragraphs that discuss the topic in detail.",1,0

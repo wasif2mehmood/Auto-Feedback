@@ -55,7 +55,6 @@ class FeedbackGenerator:
             "mode": self.config_loader.get_mode(),
             "timestamp": datetime.now().isoformat(),
             "score_summary": score_summary,
-            "prompt": prompt,
             "feedback": feedback,
             "criteria_evaluated": len(entry_scores)
         }

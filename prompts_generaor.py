@@ -7,6 +7,7 @@ class PromptGenerator:
     
     def create_repo_feedback_prompt(self, external_id, criteria_context, evaluation_results):
         """Create feedback prompt for repository assessment"""
+     
         return f"""You are an expert code reviewer providing constructive feedback on a GitHub repository's RAG implementation.
 
 **Repository ID:** {external_id}
@@ -22,11 +23,20 @@ class PromptGenerator:
 - Mention ONLY the strongest aspect that works well (1 sentence max)
 - Be specific and actionable, no generic advice
 - Focus on what will have the biggest impact
+
+Please provide concise feedback covering what works well and what needs improvement.
+Dont give strcutured output, write like a human in giving feedback in a summarized way single paragraph
 """
     
     def create_publication_feedback_prompt(self, external_id, criteria_context, evaluation_results):
         """Create feedback prompt for publication assessment"""
-        return f"""You are an expert academic reviewer providing constructive feedback on a technical publication.
+
+        
+        print("Creating publication feedback prompt")
+        print(f"External ID: {external_id}")
+        print(f"Criteria Context: {criteria_context}")
+      
+        return f"""You are an expert academic reviewer providing constructive feedback on a technical publication content.
 
 **Publication ID:** {external_id}
 
@@ -37,25 +47,28 @@ class PromptGenerator:
 {evaluation_results}
 
 **Instructions:**
-- Provide concise, actionable feedback (2-3 sentences per point)
-- Address deficiencies where scores are 0
-- Focus on clarity, completeness, and technical accuracy
-- Suggest specific improvements for missing elements
-- Keep feedback professional and supportive
-- Prioritize the most important gaps
+- Give the most critical improvements needed (1-2 sentences max)
+- Mention ONLY the strongest aspect that works well (1 sentence max)
+- Be specific and actionable, no generic advice
+- Focus on what will have the biggest impact
 
-Please provide structured feedback covering what works well and what needs improvement.
+Please provide concise feedback covering what works well and what needs improvement.
 Dont give strcutured output, write like a human in giving feedback in a summarized way single paragraph"""
     
     def build_criteria_context(self, entry_scores):
         """Build context about the criteria being evaluated"""
         context_parts = []
+        # save sccores in a csv file
+        
         
         for _, row in entry_scores.iterrows():
             criterion_id = row['criteria']
             if criterion_id in self.criteria_data:
+                print(f"Processing criterion: {criterion_id}")
                 criterion = self.criteria_data[criterion_id]
-                context_parts.append(f"- **{criterion['criterion_name']}**: {criterion['criterion_description'][0].strip()}")
+                context_parts.append(f"- **{criterion['criterion_name']}**: {criterion['criterion_description']}")
+
+      
         
         return "\n".join(context_parts)
     
@@ -88,6 +101,7 @@ Dont give strcutured output, write like a human in giving feedback in a summariz
         if mode == "repo":
             return self.create_repo_feedback_prompt(external_id, criteria_context, evaluation_results)
         elif mode == "publication":
+            print("Generating publication feedsssssssssssssssssssback prompt")
             return self.create_publication_feedback_prompt(external_id, criteria_context, evaluation_results)
         else:
             raise ValueError(f"Unknown mode: {mode}")
