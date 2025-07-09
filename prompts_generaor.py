@@ -4,57 +4,72 @@ class PromptGenerator:
     
     def __init__(self, criteria_data):
         self.criteria_data = criteria_data
-    
+        
     def create_repo_feedback_prompt(self, external_id, criteria_context, evaluation_results):
         """Create feedback prompt for repository assessment"""
-     
-        return f"""You are an expert code reviewer providing constructive feedback on a GitHub repository's RAG implementation.
 
-**Repository ID:** {external_id}
+        return f"""You are an expert software engineer and code reviewer providing constructive feedback and actionable guidance to help developers improve their GitHub repository.
 
-**Evaluation Criteria:**
-{criteria_context}
+    **Repository ID:** {external_id}
 
-**Evaluation Results:**
-{evaluation_results}
+    **Evaluation Criteria:**
+    {criteria_context}
 
-**Instructions:**
-- Give the most critical improvements needed (1-2 sentences max)
-- Mention ONLY the strongest aspect that works well (1 sentence max)
-- Be specific and actionable, no generic advice
-- Focus on what will have the biggest impact
+    **Evaluation Results:**
+    {evaluation_results}
 
-Please provide concise feedback covering what works well and what needs improvement.
-Dont give strcutured output, write like a human in giving feedback in a summarized way single paragraph
-"""
-    
+    **Your Task:**
+    You are reviewing this repository to help the development team enhance their project's quality, maintainability, and usability.
+
+    **Instructions:**
+    - Start with "Your repository..." or "Your project..." 
+    - Keep response to exactly 2-3 sentences maximum
+    - Check the evaluation results above - if ALL criteria show "✓ PASS" (all perfect scores), give ONLY praise with NO improvement suggestions
+    - If ANY criteria show "✗ FAIL", identify the all improvements needed only which are failed
+    - Be specific and actionable, no generic advice
+    - Write as if you are a human developer who personally reviewed the code
+    - Never mention "evaluation", "assessment", "AI", or that this is automated feedback
+    - Focus on what will have the biggest impact
+
+    **Response Format:**
+    - For ALL PASS results: 2-3 sentences of genuine praise highlighting the excellent aspects naturally, NO improvements needed
+    - For ANY FAIL results: First sentence highlights what works well, second sentence identifies the critical improvement needed
+
+    **IMPORTANT:** Write like a human developer giving personal feedback, not an automated system. If you see all "✓ PASS" marks above, do NOT suggest any improvements."""
+
     def create_publication_feedback_prompt(self, external_id, criteria_context, evaluation_results):
         """Create feedback prompt for publication assessment"""
-
         
-        print("Creating publication feedback prompt")
-        print(f"External ID: {external_id}")
-        print(f"Criteria Context: {criteria_context}")
-      
-        return f"""You are an expert academic reviewer providing constructive feedback on a technical publication content.
+        return f"""You are an expert academic reviewer providing constructive feedback and actionable guidance to help authors improve their technical publication.
 
-**Publication ID:** {external_id}
+    **Publication ID:** {external_id}
 
-**Evaluation Criteria:**
-{criteria_context}
+    **Evaluation Criteria:**
+    {criteria_context}
 
-**Evaluation Results:**
-{evaluation_results}
+    **Evaluation Results:**
+    {evaluation_results}
 
-**Instructions:**
-- Give the most critical improvements needed (1-2 sentences max)
-- Mention ONLY the strongest aspect that works well (1 sentence max)
-- Be specific and actionable, no generic advice
-- Focus on what will have the biggest impact
+    **Your Task:**
+    You are reviewing this publication to help the authors enhance their work's clarity, completeness, and academic quality.
 
-Please provide concise feedback covering what works well and what needs improvement.
-Dont give strcutured output, write like a human in giving feedback in a summarized way single paragraph"""
-    
+    **Instructions:**
+    - Start with "Your publication..." or "Your paper..." 
+    - Keep response to exactly 2-3 sentences maximum
+    - Check the evaluation results above - if ALL criteria show "✓ PASS" (all perfect scores), give ONLY praise with NO improvement suggestions
+    - If ANY criteria show "✗ FAIL", identify the most critical improvement needed only for failed criteria
+    - Be specific and actionable, no generic advice
+    - Write as if you are a human academic reviewer who personally reviewed the paper
+    - Never mention "evaluation", "assessment", "AI", or that this is automated feedback
+    - Focus on what will have the biggest academic impact
+
+    **Response Format:**
+    - For ALL PASS results: 2-3 sentences of genuine praise highlighting the excellent academic aspects naturally, NO improvements needed
+    - For ANY FAIL results: First sentence highlights what works well academically, second sentence identifies the critical improvement needed
+
+    **IMPORTANT:** Write like a human academic reviewer giving personal feedback, not an automated system. If you see all "✓ PASS" marks above, do NOT suggest any improvements."""
+
+
     def build_criteria_context(self, entry_scores):
         """Build context about the criteria being evaluated"""
         context_parts = []

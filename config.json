@@ -1,10 +1,11 @@
 {
     "mode":"publication",
-    "criteria_path":"./criteria/general_repo.yaml",
-    "score_path":"./scores/general_repo.csv",
+    "criteria_path":"./criteria/pub_criteria.yaml",
+    "score_path":"./scores/rag_pub.csv",
     "publications":[
     ],
     "repository_url":"",
     "output_path":"./rag_feedback.json",
-    "criteria":[]
+    "criteria":[
+    ]
 }
